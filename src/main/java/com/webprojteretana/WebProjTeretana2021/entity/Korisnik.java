@@ -6,7 +6,6 @@ import javax.persistence.*;
 @Entity
 public class Korisnik implements Serializable {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
