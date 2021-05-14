@@ -38,13 +38,16 @@ public class Korisnik implements Serializable {
     @Column(nullable = false)
     private String datumRodjenja;
 
+    @Column(nullable = false)
+    private Boolean aktivan;
+
 
 //konstruktori:
 
     public Korisnik() {
     }
 
-    public Korisnik(long id, String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String brojTel, String email, String adresa, String datumRodjenja) {
+    public Korisnik(Boolean aktivan, long id, String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String brojTel, String email, String adresa, String datumRodjenja) {
         this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
@@ -55,12 +58,17 @@ public class Korisnik implements Serializable {
         this.email = email;
         this.adresa = adresa;
         this.datumRodjenja = datumRodjenja;
+        this.aktivan = aktivan;
     }
 
 //geteri:
 
     public Long getId() {
         return id;
+    }
+
+    public Boolean getAktivan() {
+        return aktivan;
     }
 
     public String getKorisnickoIme() {
@@ -103,6 +111,10 @@ public class Korisnik implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setAktivan(Boolean aktivan) {
+        this.aktivan = aktivan;
     }
 
     public void setKorisnickoIme(String korisnickoIme) {
