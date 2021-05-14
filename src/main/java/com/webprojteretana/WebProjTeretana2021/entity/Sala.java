@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 
-// DA LI DA SALA NASLEDJUJE FITNES CENTAR??
+// DA LI DA SALA NASLEDJUJE FITNES CENTAR (ne moze jer FC ima i telefon i email, ali sala od nje moze naslediti adresu i ime)??
 
 @Entity
 public class Sala implements Serializable{

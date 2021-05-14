@@ -1,5 +1,8 @@
 package com.webprojteretana.WebProjTeretana2021.entity;
-// ocene koje treneri dobijaju od strane korisnika
+// ocene koje clanovi daju za treninge,
+// preko treninga se vidi koji trener je drzao trening,
+// tako da se treneri zapravo ocenjuju od strane clanova
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
