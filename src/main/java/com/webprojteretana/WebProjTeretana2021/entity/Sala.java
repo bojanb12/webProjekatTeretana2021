@@ -19,4 +19,7 @@ public class Sala implements Serializable{
     @Column(nullable = false)
     private String oznaka;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private FitnesCentar salaFC;
+
 }

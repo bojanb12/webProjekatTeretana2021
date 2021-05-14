@@ -2,6 +2,7 @@ package com.webprojteretana.WebProjTeretana2021.entity;
 //trening
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
@@ -26,13 +27,22 @@ public class Trening implements Serializable{
     private String trajanjeTreninga;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Clan> clanoviOdrTrening = new ArrayList<>();
+    @JoinTable(name = "odradili",
+            joinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"))
+    private Set<Clan> clanoviOdrTrening = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Clan> clanoviPrijaviliTrening = new ArrayList<>();
+    @JoinTable(name = "prijavili",
+            joinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"))
+    private Set<Clan> prijavljeniClanovi = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Ocena> ocenaOdrTreninga = new ArrayList<>();
+    @JoinTable(name = "ocenili",
+            joinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "ocena_id", referencedColumnName = "id"))
+    private Set<Ocena> ocenaTreninga = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Trener trenerTreninga;

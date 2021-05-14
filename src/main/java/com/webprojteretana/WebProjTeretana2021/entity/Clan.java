@@ -17,11 +17,20 @@ public class Clan extends Korisnik{
     private Long id;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Trening> odradjeniTreninzi = new ArrayList<>();
+    @JoinTable(name = "odradio trening",
+            joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
+    private Set<Trening> odradjeniTreninzi = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Trening> prijavljeniTreninzi = new ArrayList<>();
+    @JoinTable(name = "prijavio trening",
+            joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
+    private Set<Trening> prijavljeniTreninzi = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Ocena> oceneOdradjenihTreninga = new ArrayList<>();
+    @JoinTable(name = "daje ocenu",
+            joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "ocena_id", referencedColumnName = "id"))
+    private Set<Ocena> oceneOdrTreninga = new HashSet<>();
 }
