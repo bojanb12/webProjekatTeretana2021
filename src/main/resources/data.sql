@@ -1,0 +1,1 @@
+  INSERT INTO OCENA (komentar_ocena, vrednost_ocene) VALUES ('FTN Gym', 5);
