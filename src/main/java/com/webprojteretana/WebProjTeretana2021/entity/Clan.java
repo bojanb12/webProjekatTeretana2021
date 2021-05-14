@@ -9,7 +9,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-// da li Clan mora da ima svoj ID ako nasledjuje korisnika??
 // kako napraviti da korisnika nasledjuju i admin i trener, a da ne dodje do podudaranja ID??
 
 @Entity

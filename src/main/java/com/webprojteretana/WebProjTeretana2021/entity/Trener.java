@@ -8,7 +8,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-public class Trener extends Korisnik{
+public class Trener implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
