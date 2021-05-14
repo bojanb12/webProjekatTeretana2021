@@ -1,22 +1,18 @@
 package com.webprojteretana.WebProjTeretana2021.entity;
-// sala (deo fitnes centra)
+// ocene koje treneri dobijaju od strane korisnika
 import java.io.Serializable;
 import javax.persistence.*;
 
-
-// DA LI DA SALA NASLEDJUJE FITNES CENTAR??
-
 @Entity
-public class Sala implements Serializable{
+public class Ocena implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private Long kapacitet;
+    private String komentarOcena;
 
     @Column(nullable = false)
-    private String oznaka;
-
+    private Long vrednostOcene;
 }
