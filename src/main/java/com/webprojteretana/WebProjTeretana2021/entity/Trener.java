@@ -15,7 +15,7 @@ public class Trener extends Korisnik{
     private Long id;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "drzi trening",
+    @JoinTable(name = "drzi_trening",
             joinColumns = @JoinColumn(name = "trener_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
     private Set<Trening> treninziKojeDrzi = new HashSet<>();
