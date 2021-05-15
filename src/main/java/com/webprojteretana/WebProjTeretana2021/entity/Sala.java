@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 
-// DA LI DA SALA NASLEDJUJE FITNES CENTAR (ne moze jer FC ima i telefon i email, ali sala od nje moze naslediti adresu i ime)??
+// NE DA LI DA SALA NASLEDJUJE FITNES CENTAR (ne moze jer FC ima i telefon i email, ali sala od nje moze naslediti adresu i ime)??
 
 @Entity
 public class Sala implements Serializable{
@@ -24,5 +24,7 @@ public class Sala implements Serializable{
             joinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "fitnescentar_id", referencedColumnName = "id"))
     private FitnesCentar salaFC;
+
+    //dodati termin klasu koja povezuje salu i trening
 
 }
