@@ -46,4 +46,7 @@ public class Trening implements Serializable{
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Trener trenerTreninga;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<Termin> termini = new HashSet<>();
 }
