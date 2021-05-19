@@ -14,6 +14,34 @@ public class Trener implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
+    private String korisnickoIme;
+
+    @Column(nullable = false)
+    private String lozinka;
+
+    @Column(nullable = false)
+    private String ime;
+
+    @Column(nullable = false)
+    private String prezime;
+
+    @Column(nullable = false)
+    private String uloga;
+
+    @Column(nullable = false)
+    private String brojTel;
+
+    @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private String adresa;
+
+    @Column(nullable = false)
+    private String datumRodjenja;
+
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "drzi_trening",
             joinColumns = @JoinColumn(name = "trener_id", referencedColumnName = "id"),

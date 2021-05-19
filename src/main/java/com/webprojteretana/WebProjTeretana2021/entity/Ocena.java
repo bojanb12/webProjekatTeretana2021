@@ -24,5 +24,6 @@ public class Ocena implements Serializable{
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Trening treningZaKojiJeOcena;
 
-    //dodati clana koji je dao ocenu
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Clan clanDaoOcenu;
 }

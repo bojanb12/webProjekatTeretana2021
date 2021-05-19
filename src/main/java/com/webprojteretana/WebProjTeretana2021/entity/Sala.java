@@ -1,10 +1,10 @@
 package com.webprojteretana.WebProjTeretana2021.entity;
 // sala (deo fitnes centra)
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 
-
-// NE DA LI DA SALA NASLEDJUJE FITNES CENTAR (ne moze jer FC ima i telefon i email, ali sala od nje moze naslediti adresu i ime)??
 
 @Entity
 public class Sala implements Serializable{
@@ -25,6 +25,10 @@ public class Sala implements Serializable{
             inverseJoinColumns = @JoinColumn(name = "fitnescentar_id", referencedColumnName = "id"))
     private FitnesCentar salaFC;
 
-    //dodati termin klasu koja povezuje salu i trening
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<Termin> termini = new HashSet<>();
+
+
+
 
 }
