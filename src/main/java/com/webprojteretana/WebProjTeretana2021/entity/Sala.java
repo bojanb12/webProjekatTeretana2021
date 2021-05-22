@@ -26,7 +26,10 @@ public class Sala implements Serializable{
     private FitnesCentar salaFC;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<Termin> termini = new HashSet<>();
+    @JoinTable(name = "uSali",
+            joinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
+    private Set<Termin> terminiSala = new HashSet<>();
 
 
 

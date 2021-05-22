@@ -48,5 +48,8 @@ public class Trening implements Serializable{
     private Trener trenerTreninga;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "odrzavaSeU",
+            joinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
     private Set<Termin> termini = new HashSet<>();
 }
