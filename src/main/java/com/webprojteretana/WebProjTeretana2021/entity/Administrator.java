@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @DiscriminatorValue("admin")
-public class Administrator implements Serializable {
+public class Administrator extends Korisnik {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -27,6 +27,9 @@ public class FitnesCentar implements Serializable{
     private String emailFC;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "odrzavajuTreninge",
+            joinColumns = @JoinColumn(name = "fitnescentar_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "trener_id", referencedColumnName = "id"))
     private Set<Trener> treneri = new HashSet<>();
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
