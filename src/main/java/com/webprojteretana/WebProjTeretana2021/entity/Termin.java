@@ -21,4 +21,46 @@ public class Termin implements Serializable{
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Trening treningTermin;
+
+    //geteri i seteri:
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getVreme() {
+        return vreme;
+    }
+
+    public String getDan() {
+        return dan;
+    }
+
+    public Sala getSalaTermin() {
+        return salaTermin;
+    }
+
+    public Trening getTreningTermin() {
+        return treningTermin;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setVreme(String vreme) {
+        this.vreme = vreme;
+    }
+
+    public void setDan(String dan) {
+        this.dan = dan;
+    }
+
+    public void setSalaTermin(Sala salaTermin) {
+        this.salaTermin = salaTermin;
+    }
+
+    public void setTreningTermin(Trening treningTermin) {
+        this.treningTermin = treningTermin;
+    }
 }

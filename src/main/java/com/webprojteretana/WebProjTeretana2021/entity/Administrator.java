@@ -14,4 +14,16 @@ public class Administrator extends Korisnik {
     public Administrator(Long id) {
         this.id = id;
     }
+
+    //geteri i seteri:
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Entity
 public class Sala implements Serializable{
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,6 +33,46 @@ public class Sala implements Serializable{
     private Set<Termin> terminiSala = new HashSet<>();
 
 
+    //geter i seteri:
 
+    public Long getId() {
+        return id;
+    }
+
+    public Long getKapacitet() {
+        return kapacitet;
+    }
+
+    public String getOznaka() {
+        return oznaka;
+    }
+
+    public FitnesCentar getSalaFC() {
+        return salaFC;
+    }
+
+    public Set<Termin> getTerminiSala() {
+        return terminiSala;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setKapacitet(Long kapacitet) {
+        this.kapacitet = kapacitet;
+    }
+
+    public void setOznaka(String oznaka) {
+        this.oznaka = oznaka;
+    }
+
+    public void setSalaFC(FitnesCentar salaFC) {
+        this.salaFC = salaFC;
+    }
+
+    public void setTerminiSala(Set<Termin> terminiSala) {
+        this.terminiSala = terminiSala;
+    }
 
 }
