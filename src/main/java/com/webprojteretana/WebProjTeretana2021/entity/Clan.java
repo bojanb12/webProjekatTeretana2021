@@ -35,4 +35,16 @@ public class Clan extends Korisnik{
             joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "ocena_id", referencedColumnName = "id"))
     private Set<Ocena> oceneOdrTreninga = new HashSet<>();
+
+    //geteri i seteri:
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

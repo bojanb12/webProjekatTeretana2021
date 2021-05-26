@@ -14,34 +14,6 @@ public class Trener extends Korisnik{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String korisnickoIme;
-
-    @Column(nullable = false)
-    private String lozinka;
-
-    @Column(nullable = false)
-    private String ime;
-
-    @Column(nullable = false)
-    private String prezime;
-
-    @Column(nullable = false)
-    private String uloga;
-
-    @Column(nullable = false)
-    private String brojTel;
-
-    @Column(nullable = false)
-    private String email;
-
-    @Column(nullable = false)
-    private String adresa;
-
-    @Column(nullable = false)
-    private String datumRodjenja;
-
-
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "drzi_trening",
             joinColumns = @JoinColumn(name = "trener_id", referencedColumnName = "id"),
@@ -53,4 +25,40 @@ public class Trener extends Korisnik{
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private FitnesCentar fitnesCentarTrenera;
+
+    //geteri i seteri:
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    public Set<Trening> getTreninziKojeDrzi() {
+        return treninziKojeDrzi;
+    }
+
+    public Long getProsecnaOcena() {
+        return prosecnaOcena;
+    }
+
+    public FitnesCentar getFitnesCentarTrenera() {
+        return fitnesCentarTrenera;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTreninziKojeDrzi(Set<Trening> treninziKojeDrzi) {
+        this.treninziKojeDrzi = treninziKojeDrzi;
+    }
+
+    public void setProsecnaOcena(Long prosecnaOcena) {
+        this.prosecnaOcena = prosecnaOcena;
+    }
+
+    public void setFitnesCentarTrenera(FitnesCentar fitnesCentarTrenera) {
+        this.fitnesCentarTrenera = fitnesCentarTrenera;
+    }
 }

@@ -26,4 +26,46 @@ public class Ocena implements Serializable{
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Clan clanDaoOcenu;
+
+    //getteri i setteri:
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getKomentarOcena() {
+        return komentarOcena;
+    }
+
+    public Long getVrednostOcene() {
+        return vrednostOcene;
+    }
+
+    public Trening getTreningZaKojiJeOcena() {
+        return treningZaKojiJeOcena;
+    }
+
+    public Clan getClanDaoOcenu() {
+        return clanDaoOcenu;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setKomentarOcena(String komentarOcena) {
+        this.komentarOcena = komentarOcena;
+    }
+
+    public void setVrednostOcene(Long vrednostOcene) {
+        this.vrednostOcene = vrednostOcene;
+    }
+
+    public void setTreningZaKojiJeOcena(Trening treningZaKojiJeOcena) {
+        this.treningZaKojiJeOcena = treningZaKojiJeOcena;
+    }
+
+    public void setClanDaoOcenu(Clan clanDaoOcenu) {
+        this.clanDaoOcenu = clanDaoOcenu;
+    }
 }
