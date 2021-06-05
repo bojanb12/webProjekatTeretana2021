@@ -8,6 +8,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
+@DiscriminatorValue("trener")
 public class Trener extends Korisnik{
 
     @Id

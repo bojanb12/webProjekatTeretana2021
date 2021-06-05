@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Korisnici</title>
+
+    <link rel="stylesheet" type="text/css" href="css/artikli.css" />
+    <link rel="stylesheet" type="text/css" href="css/pozadina.css" />
+    <link rel="stylesheet" type="text/css" href="css/button.css" />
+    <script src="/js/svi.js"></script>
+    <script src="/js/jquery.min.js"></script>
+
+
+</head>
+<body>
+<div id="svi">
+    <h1>Korisnici</h1>
+
+    <a type="button" href="dodajTrenera.html" class="btn">Dodaj trenera</a>
+
+    <br><br>
+    <div class="container">
+        <table id="korisnici">
+            <tr>
+
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Uloga</th>
+                <th>O korisniku</th>
+                <th>Obriši</th>
+
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="korisnici2" hidden>
+    <div class="card">
+
+        <img alt="ProfilePicture" src="/img/profilePicture.jpg"/>
+        <h1 id="ime"></h1>
+        <h1 id="prezime"></h1>
+        <p class="title" id="uloga"></p>
+        <br>
+        <button onclick="location.href = 'korisnici.html'">Nazad</button>
+
+    </div>
+</div>
+
+</body>
+</html>
+
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/korisnici/" + this.id,
+        url: "http://localhost:8083/api/korisnici/" + this.id,
         dataType: "json",
         success: function (data) {
             console.log("SUCCESS : ", data);
