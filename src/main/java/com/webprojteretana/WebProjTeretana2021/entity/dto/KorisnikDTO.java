@@ -1,54 +1,41 @@
-package com.webprojteretana.WebProjTeretana2021.entity;
-// korisnik
-import java.io.Serializable;
-import javax.persistence.*;
+package com.webprojteretana.WebProjTeretana2021.entity.dto;
 
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tip")
-public class Korisnik implements Serializable {
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class KorisnikDTO {
+
     private Long id;
 
-    @Column(nullable = false)
     private String korisnickoIme;
 
-    @Column(nullable = false)
     private String lozinka;
 
-    @Column(nullable = false)
     private String ime;
 
-    @Column(nullable = false)
     private String prezime;
 
-    @Column(nullable = false)
     private String uloga;
 
-    @Column(nullable = false)
     private String brojTel;
 
-    @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
     private String adresa;
 
-    @Column(nullable = false)
     private String datumRodjenja;
 
-    @Column(nullable = false)
     private Boolean aktivan = true;
 
+    public KorisnikDTO(){
 
-//konstruktori:
-
-    public Korisnik() {
     }
 
-    public Korisnik(long id, String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan) {
+    public KorisnikDTO(Long id, String korisnickoIme, String lozinka, String ime,
+                       String prezime, String uloga, String brojTel, String email,
+                       String adresa, String datumRodjenja, Boolean aktivan) {
         this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
@@ -62,20 +49,8 @@ public class Korisnik implements Serializable {
         this.aktivan = aktivan;
     }
 
-    public Korisnik(String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan) {
-    }
-
-    public Korisnik(String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String brojTel, String email, String adresa, String datumRodjenja) {
-    }
-
-//geteri:
-
     public Long getId() {
         return id;
-    }
-
-    public Boolean getAktivan() {
-        return aktivan;
     }
 
     public String getKorisnickoIme() {
@@ -114,14 +89,12 @@ public class Korisnik implements Serializable {
         return datumRodjenja;
     }
 
-//seteri:
+    public Boolean getAktivan() {
+        return aktivan;
+    }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public void setAktivan(Boolean aktivan) {
-        this.aktivan = aktivan;
     }
 
     public void setKorisnickoIme(String korisnickoIme) {
@@ -159,5 +132,9 @@ public class Korisnik implements Serializable {
     public void setDatumRodjenja(String datumRodjenja) {
         this.datumRodjenja = datumRodjenja;
     }
-}
 
+    public void setAktivan(Boolean aktivan) {
+        this.aktivan = aktivan;
+    }
+
+}

@@ -12,11 +12,14 @@ import java.util.Set;
 // kako napraviti da korisnika nasledjuju i admin i trener, a da ne dodje do podudaranja ID??
 
 @Entity
+@DiscriminatorValue("clan")
 public class Clan extends Korisnik{
+    public Clan() {
+    }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    public Clan(String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String brojTel, String email, String adresa, String datumRodjenja) {
+        super(korisnickoIme, lozinka, ime, prezime, uloga, brojTel, email, adresa, datumRodjenja);
+    }
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "odradio_trening",
@@ -30,21 +33,36 @@ public class Clan extends Korisnik{
             inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
     private Set<Trening> prijavljeniTreninzi = new HashSet<>();
 
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "daje_ocenu",
             joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "ocena_id", referencedColumnName = "id"))
     private Set<Ocena> oceneOdrTreninga = new HashSet<>();
 
-    //geteri i seteri:
+//geteri i seteri:
 
-    @Override
-    public Long getId() {
-        return id;
+    public void setOdradjeniTreninzi(Set<Trening> odradjeniTreninzi) {
+        this.odradjeniTreninzi = odradjeniTreninzi;
     }
 
-    @Override
-    public void setId(Long id) {
-        this.id = id;
+    public void setPrijavljeniTreninzi(Set<Trening> prijavljeniTreninzi) {
+        this.prijavljeniTreninzi = prijavljeniTreninzi;
+    }
+
+    public void setOceneOdrTreninga(Set<Ocena> oceneOdrTreninga) {
+        this.oceneOdrTreninga = oceneOdrTreninga;
+    }
+
+    public Set<Trening> getOdradjeniTreninzi() {
+        return odradjeniTreninzi;
+    }
+
+    public Set<Trening> getPrijavljeniTreninzi() {
+        return prijavljeniTreninzi;
+    }
+
+    public Set<Ocena> getOceneOdrTreninga() {
+        return oceneOdrTreninga;
     }
 }

@@ -7,7 +7,7 @@ $(document).on("submit", "form", function(event){
     var lozinka = $("#lozinka").val();
     var ime = $("#ime").val();
     var prezime = $("#prezime").val();
-    var uloga = $("#uloga").val();
+    var uloga = 'Clan';
     var brojTel = $("#brojTel").val();
     var email = $("#email").val();
     var adresa = $("#adresa").val();
@@ -19,7 +19,7 @@ $(document).on("submit", "form", function(event){
 
     $.ajax({
             type: "POST",
-            url: "http://localhost:8080/api/registracija",
+            url: "http://localhost:8083/api/clanovi/registracija",
             dataType: "json",
             contentType: "application/json",
             data: noviJSON,
