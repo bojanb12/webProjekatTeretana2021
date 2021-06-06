@@ -8,10 +8,10 @@
     <link rel="stylesheet" type="text/css" href="css/registracija.css" />
     <link rel="stylesheet" type="text/css" href="css/pozadina.css" />
 
-    <!--
+
     <script src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/registracija.js"></script>
-    -->
+
 
 </head>
 <body>
@@ -59,7 +59,14 @@
         <br>
 
         <label class="tekst" for="datumRodj">Datum:</label>
-        <input class="unos" id="datumRodj" type="text">
+        <input class="unos" id="datumRodj" type="date">
+        <br>
+
+        <label class="tekst">Odabrite vrstu naloga:</label>
+        <select id="uloga" class="uloga" name="uloga" size="1">
+            <option id="ulogaTrener" value="Trener">Trener</option>
+            <option id="ulogaClan" value="Clan">Clan</option>
+        </select>
         <br>
 
 

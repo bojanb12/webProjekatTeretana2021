@@ -3,19 +3,20 @@ $(document).on("submit", "form", function(event){
     // da se izbegne izvrsavanja pravog submita forme
     event.preventDefault();
 
-    var korisnickoIme = $("#korisnickoIme").val();
-    var lozinka = $("#lozinka").val();
+
     var ime = $("#ime").val();
     var prezime = $("#prezime").val();
-    var uloga = 'Clan';
-    var brojTel = $("#brojTel").val();
+    var korisnickoIme = $("#korisnickoIme").val();
     var email = $("#email").val();
+    var lozinka = $("#lozinka").val();
+    var brojTel = $("#brojTel").val();
     var adresa = $("#adresa").val();
     var datumRodj = $("#datumRodj").val();
+    var uloga = 'clan';
     var danas = new Date(); // datum registracije
     var status= 1;
 
-    var noviJSON = formToJSON(korisnickoIme, lozinka, ime, prezime, uloga, brojTel, email, adresa, datumRodj, danas, status);
+    var noviJSON = formToJSON(ime, prezime, korisnickoIme, email, lozinka, brojTel, adresa, datumRodj, uloga, danas, status);
 
     $.ajax({
             type: "POST",
