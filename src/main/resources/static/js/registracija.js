@@ -10,8 +10,8 @@ $(document).on("submit", "form", function(event){
     var brojTel = $("#brojTel").val();
     var email = $("#email").val();
     var adresa = $("#adresa").val();
-    var datumRodj = $("#datumRodj").val();
-    var aktivan = true;
+    var datumRodjenja = $("#datumRodj").val();
+    var aktivan = 'Da';
 
     //var danas = new Date(); // datum registracije
 
@@ -19,12 +19,12 @@ $(document).on("submit", "form", function(event){
 
     $.ajax({
             type: "POST",
-            url: "http://localhost:8083/api/clanovi/registracija",
+            url: "http://localhost:8083/api/clanovi/registration",
             dataType: "json",
             contentType: "application/json",
             data: noviJSON,
             success: function () {
-                 alert("Nalog "ime + " " + prezime + " je uspešno kreiran!");
+                 alert("Nalog " + ime + " " + prezime + " je uspešno kreiran!");
                  window.location.href = "home.html";
                  },
             error: function (data) {
@@ -33,7 +33,7 @@ $(document).on("submit", "form", function(event){
     });
 });
 
-function formToJSON(ime, prezime, korisnickoIme, email, lozinka, brojTel, adresa, datumRodj, aktivan){
+function formToJSON(korisnickoIme, lozinka, ime, prezime, brojTel, email, adresa, datumRodj, aktivan){
     return JSON.stringify(
         {
         "korisnickoIme": korisnickoIme,

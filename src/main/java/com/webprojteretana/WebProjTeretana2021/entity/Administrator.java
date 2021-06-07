@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @DiscriminatorValue("admin")
-public class Administrator extends Korisnik {
+public class Administrator implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,13 +44,5 @@ public class Administrator extends Korisnik {
 
     //geteri i seteri:
 
-    @Override
-    public Long getId() {
-        return id;
-    }
 
-    @Override
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

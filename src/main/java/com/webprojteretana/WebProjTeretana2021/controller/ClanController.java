@@ -25,7 +25,7 @@ public class ClanController {
 
 
     //registracija
-    @PostMapping(value="/registracija", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value="/registration", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ClanDTO> createClan(@RequestBody ClanDTO clanDTO) throws Exception {
 
         Clan clan = new Clan(clanDTO.getKorisnickoIme(), clanDTO.getLozinka(), clanDTO.getIme(), clanDTO.getPrezime(), clanDTO.getBrojTel(), clanDTO.getEmail(), clanDTO.getAdresa(), clanDTO.getDatumRodjenja(), clanDTO.getAktivan());
