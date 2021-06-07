@@ -12,11 +12,10 @@ $(document).on("submit", "form", function(event){
     var brojTel = $("#brojTel").val();
     var adresa = $("#adresa").val();
     var datumRodj = $("#datumRodj").val();
-    var uloga = 'clan';
-    var danas = new Date(); // datum registracije
-    var status= 1;
+    //var uloga = 'clan';
+    //var danas = new Date(); // datum registracije
 
-    var noviJSON = formToJSON(ime, prezime, korisnickoIme, email, lozinka, brojTel, adresa, datumRodj, uloga, danas, status);
+    var noviJSON = formToJSON(ime, prezime, korisnickoIme, email, lozinka, brojTel, adresa, datumRodj);
 
     $.ajax({
             type: "POST",
@@ -25,7 +24,7 @@ $(document).on("submit", "form", function(event){
             contentType: "application/json",
             data: noviJSON,
             success: function () {
-                 alert(ime + " " + prezime + " je uspešno kreiran kao " + uloga);
+                 alert(ime + " " + prezime + " je uspešno kreiran");
                  window.location.href = "home.html";
                  },
             error: function (data) {
@@ -34,20 +33,20 @@ $(document).on("submit", "form", function(event){
     });
 });
 
-function formToJSON(korisnickoIme, lozinka, ime, prezime, uloga, brojTel, email, adresa, datumRodj, danas, status){
+function formToJSON(ime, prezime, korisnickoIme, email, lozinka, brojTel, adresa, datumRodj){
     return JSON.stringify(
         {
         "korisnickoIme": korisnickoIme,
         "lozinka": lozinka,
         "ime": ime,
         "prezime": prezime,
-        "uloga": uloga,
+        //"uloga": uloga,
         "brojTel": brojTel,
         "email": email,
         "adresa": adresa,
         "datumRodj": datumRodj,
-        "danas": danas,
-        "status": status
+        //"danas": danas,
+        //"status": status
         }
     );
 };

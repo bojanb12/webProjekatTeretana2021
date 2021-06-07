@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-// kako napraviti da korisnika nasledjuju i admin i trener, a da ne dodje do podudaranja ID??
+
 
 @Entity
 @DiscriminatorValue("clan")

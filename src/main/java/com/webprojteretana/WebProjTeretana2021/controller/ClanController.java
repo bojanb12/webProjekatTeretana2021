@@ -33,7 +33,7 @@ public class ClanController {
     )
     public ResponseEntity<ClanDTO> registracijaClana(@RequestBody ClanDTO clanDTO) throws Exception{
 
-        Clan clan = new Clan(clanDTO.getKorisnickoIme(), clanDTO.getLozinka(), clanDTO.getIme(), clanDTO.getPrezime(), clanDTO.getUloga(), clanDTO.getBrojTel(), clanDTO.getEmail(), clanDTO.getAdresa(), clanDTO.getDatumRodjenja());
+        Clan clan = new Clan(clanDTO.getIme(), clanDTO.getPrezime(), clanDTO.getKorisnickoIme(), clanDTO.getEmail(), clanDTO.getLozinka(), clanDTO.getBrojTel(), clanDTO.getAdresa(), clanDTO.getDatumRodjenja(), clanDTO.getDatumRodjenja());
 
         Clan noviClan = clanService.create(clan);
 
