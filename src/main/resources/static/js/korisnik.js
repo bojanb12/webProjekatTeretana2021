@@ -7,7 +7,6 @@ $(document).ready(function () {
             console.log("SUCCESS : ", data);
             $('#ime').append(data['ime']);
             $('#prezime').append(data['prezime']);
-            $('#uloga').append(data['uloga']);
         },
         error: function (data) {
             console.log("ERROR : ", data);

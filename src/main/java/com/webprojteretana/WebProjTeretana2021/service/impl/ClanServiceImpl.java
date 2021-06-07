@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class ClanServiceImpl implements ClanService {
 
     private final ClanRepository clanRepository;
 
+    @Autowired
     public ClanServiceImpl(ClanRepository clanRepository) {
         this.clanRepository = clanRepository;
     }
@@ -22,9 +24,18 @@ public class ClanServiceImpl implements ClanService {
         if (clan.getId() != null) {
             throw new Exception("ID must be null!");
         }
-        Date datum = new Date();
         Clan newClan = this.clanRepository.save(clan);
         return newClan;
+    }
+
+    @Override
+    public List<Clan> findAll() {
+        return null;
+    }
+
+    @Override
+    public Clan update(Clan clan) throws Exception {
+        return null;
     }
 
 

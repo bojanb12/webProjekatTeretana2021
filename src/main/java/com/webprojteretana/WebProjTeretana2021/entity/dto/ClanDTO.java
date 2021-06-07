@@ -1,39 +1,33 @@
 package com.webprojteretana.WebProjTeretana2021.entity.dto;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class ClanDTO {
 
+
     private Long id;
-
     private String korisnickoIme;
-
     private String lozinka;
-
     private String ime;
-
     private String prezime;
-
-    private String uloga;
-
     private String brojTel;
-
     private String email;
-
     private String adresa;
-
     private String datumRodjenja;
-
-    private Boolean aktivan = true;
+    private Boolean aktivan;
 
     public ClanDTO() {
-
     }
 
-    public ClanDTO(String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan) {
+    public ClanDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan) {
+        this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
         this.ime = ime;
         this.prezime = prezime;
-        this.uloga = uloga;
         this.brojTel = brojTel;
         this.email = email;
         this.adresa = adresa;
@@ -41,10 +35,16 @@ public class ClanDTO {
         this.aktivan = aktivan;
     }
 
-    public ClanDTO(String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String brojTel, String email, String adresa, String datumRodjenja) {
-    }
-
-    public ClanDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String uloga, String brojTel, String email, String adresa, String datumRodjenja) {
+    public ClanDTO(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan) {
+        this.korisnickoIme = korisnickoIme;
+        this.lozinka = lozinka;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.brojTel = brojTel;
+        this.email = email;
+        this.adresa = adresa;
+        this.datumRodjenja = datumRodjenja;
+        this.aktivan = aktivan;
     }
 
     public Long getId() {
@@ -85,14 +85,6 @@ public class ClanDTO {
 
     public void setPrezime(String prezime) {
         this.prezime = prezime;
-    }
-
-    public String getUloga() {
-        return uloga;
-    }
-
-    public void setUloga(String uloga) {
-        this.uloga = uloga;
     }
 
     public String getBrojTel() {
