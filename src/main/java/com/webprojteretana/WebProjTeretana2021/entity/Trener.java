@@ -40,6 +40,9 @@ public class Trener implements Serializable{
     private String datumRodjenja;
 
     @Column(nullable = false)
+    private Long prosecnaOcena;
+
+    @Column(nullable = false)
     private Boolean aktivan = true;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -48,8 +51,7 @@ public class Trener implements Serializable{
             inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
     private Set<Trening> treninziKojeDrzi = new HashSet<>();
 
-    @Column(nullable = false)
-    private Long prosecnaOcena;
+
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private FitnesCentar fitnesCentarTrenera;

@@ -43,7 +43,7 @@ public class Clan implements Serializable{
     private String datumRodjenja;
 
     @Column(nullable = false)
-    private String aktivan;
+    private Boolean aktivan;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "odradio_trening",
@@ -67,7 +67,7 @@ public class Clan implements Serializable{
     public Clan() {
     }
 
-    public Clan(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, String aktivan) {
+    public Clan(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan) {
         this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
@@ -80,7 +80,7 @@ public class Clan implements Serializable{
         this.aktivan = aktivan;
     }
 
-    public Clan(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, String aktivan) {
+    public Clan(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan) {
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
         this.ime = ime;
@@ -166,11 +166,11 @@ public class Clan implements Serializable{
         this.datumRodjenja = datumRodjenja;
     }
 
-    public String getAktivan() {
+    public Boolean getAktivan() {
         return aktivan;
     }
 
-    public void setAktivan(String aktivan) {
+    public void setAktivan(Boolean aktivan) {
         this.aktivan = aktivan;
     }
 

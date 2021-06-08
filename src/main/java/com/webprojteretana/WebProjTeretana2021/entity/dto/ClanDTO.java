@@ -17,12 +17,12 @@ public class ClanDTO {
     private String email;
     private String adresa;
     private String datumRodjenja;
-    private String aktivan;
+    private Boolean aktivan;
 
     public ClanDTO() {
     }
 
-    public ClanDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, String aktivan) {
+    public ClanDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan) {
         this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
@@ -35,7 +35,7 @@ public class ClanDTO {
         this.aktivan = aktivan;
     }
 
-    public ClanDTO(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, String aktivan) {
+    public ClanDTO(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan) {
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
         this.ime = ime;
@@ -119,11 +119,11 @@ public class ClanDTO {
         this.datumRodjenja = datumRodjenja;
     }
 
-    public String getAktivan() {
+    public Boolean getAktivan() {
         return aktivan;
     }
 
-    public void setAktivan(String aktivan) {
+    public void setAktivan(Boolean aktivan) {
         this.aktivan = aktivan;
     }
 }
