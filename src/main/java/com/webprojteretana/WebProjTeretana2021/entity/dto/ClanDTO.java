@@ -7,7 +7,6 @@ import javax.persistence.Id;
 
 public class ClanDTO {
 
-
     private Long id;
     private String korisnickoIme;
     private String lozinka;
@@ -17,12 +16,13 @@ public class ClanDTO {
     private String email;
     private String adresa;
     private String datumRodjenja;
-    private String aktivan;
+    private Boolean aktivan;
+    private String uloga;
 
     public ClanDTO() {
     }
 
-    public ClanDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, String aktivan) {
+    public ClanDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan, String uloga) {
         this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
@@ -33,9 +33,10 @@ public class ClanDTO {
         this.adresa = adresa;
         this.datumRodjenja = datumRodjenja;
         this.aktivan = aktivan;
+        this.uloga = uloga;
     }
 
-    public ClanDTO(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, String aktivan) {
+    public ClanDTO(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan, String uloga) {
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
         this.ime = ime;
@@ -45,6 +46,7 @@ public class ClanDTO {
         this.adresa = adresa;
         this.datumRodjenja = datumRodjenja;
         this.aktivan = aktivan;
+        this.uloga = uloga;
     }
 
     public Long getId() {
@@ -119,11 +121,19 @@ public class ClanDTO {
         this.datumRodjenja = datumRodjenja;
     }
 
-    public String getAktivan() {
+    public Boolean getAktivan() {
         return aktivan;
     }
 
-    public void setAktivan(String aktivan) {
+    public void setAktivan(Boolean aktivan) {
         this.aktivan = aktivan;
+    }
+
+    public String getUloga() {
+        return uloga;
+    }
+
+    public void setUloga(String uloga) {
+        this.uloga = uloga;
     }
 }

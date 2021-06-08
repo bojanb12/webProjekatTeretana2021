@@ -42,14 +42,16 @@ public class Trener implements Serializable{
     @Column(nullable = false)
     private Boolean aktivan = true;
 
+    @Column(nullable = false)
+    private String uloga;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "drzi_trening",
             joinColumns = @JoinColumn(name = "trener_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
     private Set<Trening> treninziKojeDrzi = new HashSet<>();
 
-    @Column(nullable = false)
-    private Long prosecnaOcena;
+
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private FitnesCentar fitnesCentarTrenera;
@@ -57,7 +59,7 @@ public class Trener implements Serializable{
     public Trener() {
     }
 
-    public Trener(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan) {
+    public Trener(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan, String uloga) {
         this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
@@ -68,9 +70,10 @@ public class Trener implements Serializable{
         this.adresa = adresa;
         this.datumRodjenja = datumRodjenja;
         this.aktivan = aktivan;
+        this.uloga = uloga;
     }
 
-    public Trener(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan) {
+    public Trener(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan, String uloga) {
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
         this.ime = ime;
@@ -80,6 +83,7 @@ public class Trener implements Serializable{
         this.adresa = adresa;
         this.datumRodjenja = datumRodjenja;
         this.aktivan = aktivan;
+        this.uloga = uloga;
     }
 
     //geteri i seteri:
@@ -162,5 +166,13 @@ public class Trener implements Serializable{
 
     public void setAktivan(Boolean aktivan) {
         this.aktivan = aktivan;
+    }
+    
+    public String getUloga() {
+        return uloga;
+    }
+
+    public void setUloga(String uloga) {
+        this.uloga = uloga;
     }
 }

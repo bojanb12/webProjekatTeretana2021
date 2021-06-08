@@ -1,76 +1,28 @@
-package com.webprojteretana.WebProjTeretana2021.entity;
-// clan (nasledjuje korisnika)
-import java.io.Serializable;
-import java.util.ArrayList;
-import javax.persistence.*;
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+package com.webprojteretana.WebProjTeretana2021.entity.dto;
 
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "clan")
-public class Clan implements Serializable{
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TrenerDTO {
+
     private Long id;
-
-    @Column(nullable = false)
     private String korisnickoIme;
-
-    @Column(nullable = false)
     private String lozinka;
-
-    @Column(nullable = false)
     private String ime;
-
-    @Column(nullable = false)
     private String prezime;
-
-    @Column(nullable = false)
     private String brojTel;
-
-    @Column(nullable = false)
     private String email;
-
-    @Column(nullable = false)
     private String adresa;
-
-    @Column(nullable = false)
     private String datumRodjenja;
-
-    @Column(nullable = false)
-    private Boolean aktivan;
-
-    @Column(nullable = false)
+    private Boolean aktivan = true;
     private String uloga;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "odradio_trening",
-            joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
-    private Set<Trening> odradjeniTreninzi = new HashSet<>();
-
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "prijavio_trening",
-            joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
-    private Set<Trening> prijavljeniTreninzi = new HashSet<>();
-
-
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "daje_ocenu",
-            joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "ocena_id", referencedColumnName = "id"))
-    private Set<Ocena> oceneOdrTreninga = new HashSet<>();
-
-    public Clan() {
+    public TrenerDTO() {
     }
 
-    public Clan(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan, String uloga) {
+    public TrenerDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan, String uloga) {
         this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
@@ -84,7 +36,7 @@ public class Clan implements Serializable{
         this.uloga = uloga;
     }
 
-    public Clan(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan, String uloga) {
+    public TrenerDTO(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan, String uloga) {
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
         this.ime = ime;
@@ -96,8 +48,6 @@ public class Clan implements Serializable{
         this.aktivan = aktivan;
         this.uloga = uloga;
     }
-
-//geteri i seteri:
 
     public Long getId() {
         return id;

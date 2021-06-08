@@ -12,7 +12,7 @@ $(document).on("submit", "form", function(event){
     var adresa = $("#adresa").val();
     var datumRodjenja = $("#datumRodjenja").val();
     var aktivan = true;
-    var uloga = 'Clan';
+    var uloga = 'Trener';
 
     //var danas = new Date(); // datum registracije
 
@@ -20,7 +20,7 @@ $(document).on("submit", "form", function(event){
 
     $.ajax({
             type: "POST",
-            url: "http://localhost:8083/api/clanovi/registration",
+            url: "http://localhost:8083/api/treneri/registration",
             dataType: "json",
             contentType: "application/json",
             data: noviJSON,
