@@ -41,6 +41,10 @@ $(document).on("submit", "form", function(event){
                 alert("Ulogovan je clan " + korisnickoImeUlogovanogKorisnika + " .");
                 window.location.href = "pocetna.html";
             }
+            else if (ulogaUlogovanogKorisnika == 'Trener'){
+                alert("Ulogovan je trener " + korisnickoImeUlogovanogKorisnika + " .");
+                window.location.href = "pocetnaTrener.html";
+            }
             else {
                 window.location.href = "pocetna.html";
             }
