@@ -29,11 +29,11 @@ public class ClanController {
     @PostMapping(value="/registration", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ClanDTO> createClan(@RequestBody ClanDTO clanDTO) throws Exception {
 
-        Clan clan = new Clan(clanDTO.getKorisnickoIme(), clanDTO.getLozinka(), clanDTO.getIme(), clanDTO.getPrezime(), clanDTO.getBrojTel(), clanDTO.getEmail(), clanDTO.getAdresa(), clanDTO.getDatumRodjenja(), clanDTO.getAktivan());
+        Clan clan = new Clan(clanDTO.getKorisnickoIme(), clanDTO.getLozinka(), clanDTO.getIme(), clanDTO.getPrezime(), clanDTO.getBrojTel(), clanDTO.getEmail(), clanDTO.getAdresa(), clanDTO.getDatumRodjenja(), clanDTO.getAktivan(), clanDTO.getUloga());
 
         Clan newClan = clanService.create(clan);
 
-        ClanDTO newClanDTO = new ClanDTO(newClan.getKorisnickoIme(), newClan.getLozinka(), newClan.getIme(), newClan.getPrezime(), newClan.getBrojTel(), newClan.getEmail(), newClan.getAdresa(), newClan.getDatumRodjenja(), newClan.getAktivan());
+        ClanDTO newClanDTO = new ClanDTO(newClan.getKorisnickoIme(), newClan.getLozinka(), newClan.getIme(), newClan.getPrezime(), newClan.getBrojTel(), newClan.getEmail(), newClan.getAdresa(), newClan.getDatumRodjenja(), newClan.getAktivan(), newClan.getUloga());
 
         return new ResponseEntity<>(newClanDTO, HttpStatus.OK);
     }
@@ -51,7 +51,7 @@ public class ClanController {
 
         if (clan != null) {
 
-            logovaniClan = new ClanDTO(clan.getId(), clan.getKorisnickoIme(), clan.getLozinka(), clan.getIme(), clan.getPrezime(), clan.getBrojTel(), clan.getEmail(), clan.getAdresa(), clan.getDatumRodjenja(), clan.getAktivan());
+            logovaniClan = new ClanDTO(clan.getId(), clan.getKorisnickoIme(), clan.getLozinka(), clan.getIme(), clan.getPrezime(), clan.getBrojTel(), clan.getEmail(), clan.getAdresa(), clan.getDatumRodjenja(), clan.getAktivan(), clan.getUloga());
             return new ResponseEntity<>(logovaniClan, HttpStatus.OK);
 
         }
@@ -67,7 +67,7 @@ public class ClanController {
         Clan clan = this.clanService.findOne(id);
 
         // Kreiramo objekat klase EmployeeDTO
-        ClanDTO korisnikDTO = new ClanDTO(clan.getId(), clan.getKorisnickoIme(), clan.getLozinka(), clan.getIme(), clan.getPrezime(), clan.getBrojTel(), clan.getEmail(), clan.getAdresa(), clan.getDatumRodjenja(), clan.getAktivan());
+        ClanDTO korisnikDTO = new ClanDTO(clan.getId(), clan.getKorisnickoIme(), clan.getLozinka(), clan.getIme(), clan.getPrezime(), clan.getBrojTel(), clan.getEmail(), clan.getAdresa(), clan.getDatumRodjenja(), clan.getAktivan(), clan.getUloga());
 
 
         // Vraćamo ResponseEntity

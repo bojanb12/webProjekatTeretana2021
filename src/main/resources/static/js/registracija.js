@@ -12,10 +12,11 @@ $(document).on("submit", "form", function(event){
     var adresa = $("#adresa").val();
     var datumRodjenja = $("#datumRodjenja").val();
     var aktivan = true;
+    var uloga = 'Clan';
 
     //var danas = new Date(); // datum registracije
 
-    var noviJSON = formToJSON(korisnickoIme, lozinka, ime, prezime, brojTel, email, adresa, datumRodjenja, aktivan);
+    var noviJSON = formToJSON(korisnickoIme, lozinka, ime, prezime, brojTel, email, adresa, datumRodjenja, aktivan, uloga);
 
     $.ajax({
             type: "POST",
@@ -33,7 +34,7 @@ $(document).on("submit", "form", function(event){
     });
 });
 
-function formToJSON(korisnickoIme, lozinka, ime, prezime, brojTel, email, adresa, datumRodjenja, aktivan){
+function formToJSON(korisnickoIme, lozinka, ime, prezime, brojTel, email, adresa, datumRodjenja, aktivan, uloga){
     return JSON.stringify(
         {
         "korisnickoIme": korisnickoIme,
@@ -44,7 +45,8 @@ function formToJSON(korisnickoIme, lozinka, ime, prezime, brojTel, email, adresa
         "email": email,
         "adresa": adresa,
         "datumRodjenja": datumRodjenja,
-        "aktivan" : aktivan
+        "aktivan" : aktivan,
+        "uloga" : uloga
         //"danas": danas,
         }
     );

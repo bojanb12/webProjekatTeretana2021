@@ -27,14 +27,25 @@ $(document).on("submit", "form", function(event){
             localStorage.setItem('id', data['id']);
             localStorage.setItem('email', data['email']);
             localStorage.setItem('lozinka', data['lozinka']);
+            localStorage.setItem('uloga', data['uloga']);
+            localStorage.setItem('korisnickoIme', data['korisnickoIme']);
 
             // kasnije u bilo kom js fajlu moze da se dobavi ulogovani korisnik ili njegova uloga na sledeci nacin:
-            //var ulogaUlogovanogKorisnika = localStorage.getItem('positionn');
+            var ulogaUlogovanogKorisnika = localStorage.getItem('uloga');
+            var korisnickoImeUlogovanogKorisnika = localStorage.getItem('korisnickoIme');
             // ispisujemo ulogu u konzoli da bismo potvrdili da je sve u redu
-            //console.log("Ovo je postavljena uloga ulogovanog korisnika:" + ulogaUlogovanogKorisnika);
+            console.log("Ovo je postavljena uloga ulogovanog korisnika:" + ulogaUlogovanogKorisnika);
 
+            // ovde proveravamo koja je uloga ulogovanog korisnika i ispisujemo njegovo korisnicko ime i ulogu pri logovanju
+            if (ulogaUlogovanogKorisnika == 'Clan'){
+                alert("Ulogovan je clan " + korisnickoImeUlogovanogKorisnika + " .");
+                window.location.href = "pocetna.html";
+            }
+            else {
+                window.location.href = "pocetna.html";
+            }
             // redirektujemo se na neku drugu stranicu
-            window.location.href = "pocetna.html";
+
         },
         error: function (data) {
             console.log(data);
