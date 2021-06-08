@@ -16,14 +16,13 @@ public class TrenerDTO {
     private String email;
     private String adresa;
     private String datumRodjenja;
-    private Long prosecnaOcena;
     private Boolean aktivan = true;
     private String uloga;
 
     public TrenerDTO() {
     }
 
-    public TrenerDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Long prosecnaOcena, Boolean aktivan, String uloga) {
+    public TrenerDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan, String uloga) {
         this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
@@ -33,12 +32,11 @@ public class TrenerDTO {
         this.email = email;
         this.adresa = adresa;
         this.datumRodjenja = datumRodjenja;
-        this.prosecnaOcena = prosecnaOcena;
         this.aktivan = aktivan;
         this.uloga = uloga;
     }
 
-    public TrenerDTO(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Long prosecnaOcena, Boolean aktivan, String uloga) {
+    public TrenerDTO(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, Boolean aktivan, String uloga) {
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
         this.ime = ime;
@@ -47,7 +45,6 @@ public class TrenerDTO {
         this.email = email;
         this.adresa = adresa;
         this.datumRodjenja = datumRodjenja;
-        this.prosecnaOcena = prosecnaOcena;
         this.aktivan = aktivan;
         this.uloga = uloga;
     }
@@ -122,14 +119,6 @@ public class TrenerDTO {
 
     public void setDatumRodjenja(String datumRodjenja) {
         this.datumRodjenja = datumRodjenja;
-    }
-
-    public Long getProsecnaOcena() {
-        return prosecnaOcena;
-    }
-
-    public void setProsecnaOcena(Long prosecnaOcena) {
-        this.prosecnaOcena = prosecnaOcena;
     }
 
     public Boolean getAktivan() {

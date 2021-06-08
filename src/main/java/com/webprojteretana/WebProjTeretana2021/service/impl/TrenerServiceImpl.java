@@ -6,9 +6,11 @@ import com.webprojteretana.WebProjTeretana2021.repository.ClanRepository;
 import com.webprojteretana.WebProjTeretana2021.repository.TrenerRepository;
 import com.webprojteretana.WebProjTeretana2021.service.TrenerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TrenerServiceImpl implements TrenerService {
 
     private final TrenerRepository trenerRepository;

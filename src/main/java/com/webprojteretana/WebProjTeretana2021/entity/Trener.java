@@ -40,9 +40,6 @@ public class Trener implements Serializable{
     private String datumRodjenja;
 
     @Column(nullable = false)
-    private Long prosecnaOcena;
-
-    @Column(nullable = false)
     private Boolean aktivan = true;
 
     @Column(nullable = false)
@@ -170,15 +167,7 @@ public class Trener implements Serializable{
     public void setAktivan(Boolean aktivan) {
         this.aktivan = aktivan;
     }
-
-    public Long getProsecnaOcena() {
-        return prosecnaOcena;
-    }
-
-    public void setProsecnaOcena(Long prosecnaOcena) {
-        this.prosecnaOcena = prosecnaOcena;
-    }
-
+    
     public String getUloga() {
         return uloga;
     }
