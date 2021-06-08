@@ -10,7 +10,8 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@DiscriminatorValue("clan")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "clan")
 public class Clan implements Serializable{
 
     @Id

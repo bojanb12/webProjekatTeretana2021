@@ -44,4 +44,9 @@ public class ClanServiceImpl implements ClanService {
         return clanRepository.getOne(id);
 
     }
+
+    @Override
+    public Clan login(String email, String lozinka){
+        return  this.clanRepository.findByEmailAndLozinka(email, lozinka);
+    }
 }

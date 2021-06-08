@@ -15,4 +15,6 @@ public interface ClanService {
     Clan update(Clan clan) throws  Exception;
 
     Clan findOne(Long id);
+
+    Clan login(String email, String lozinka);
 }
