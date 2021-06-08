@@ -1,51 +1,23 @@
-package com.webprojteretana.WebProjTeretana2021.entity;
-// administrator (nasledjuje korisnika)
-import javax.persistence.*;
-import java.io.Serializable;
+package com.webprojteretana.WebProjTeretana2021.entity.dto;
 
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorValue("admin")
-public class Administrator implements Serializable{
+public class AdministratorDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
     private String korisnickoIme;
-
-    @Column(nullable = false)
     private String lozinka;
-
-    @Column(nullable = false)
     private String ime;
-
-    @Column(nullable = false)
     private String prezime;
-
-    @Column(nullable = false)
     private String brojTel;
-
-    @Column(nullable = false)
     private String email;
-
-    @Column(nullable = false)
     private String adresa;
-
-    @Column(nullable = false)
     private String datumRodjenja;
-
-    //@Column(nullable = false)
     //private Boolean aktivan;
-
-    @Column(nullable = false)
     private String uloga;
 
-    public Administrator() {
+    public AdministratorDTO() {
     }
 
-    public Administrator(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, String uloga) {
+    public AdministratorDTO(Long id, String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, String uloga) {
         this.id = id;
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
@@ -58,7 +30,7 @@ public class Administrator implements Serializable{
         this.uloga = uloga;
     }
 
-    public Administrator(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, String uloga) {
+    public AdministratorDTO(String korisnickoIme, String lozinka, String ime, String prezime, String brojTel, String email, String adresa, String datumRodjenja, String uloga) {
         this.korisnickoIme = korisnickoIme;
         this.lozinka = lozinka;
         this.ime = ime;
@@ -69,8 +41,6 @@ public class Administrator implements Serializable{
         this.datumRodjenja = datumRodjenja;
         this.uloga = uloga;
     }
-    //geteri i seteri:
-
 
     public Long getId() {
         return id;

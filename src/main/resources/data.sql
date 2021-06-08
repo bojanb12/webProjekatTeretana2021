@@ -1,3 +1,6 @@
+-- admin nalog za pristupanje admin funkcionalnostima
+INSERT INTO ADMINISTRATOR (KORISNICKO_IME, LOZINKA, IME, PREZIME, BROJ_TEL, EMAIL, ADRESA, DATUM_RODJENJA, ULOGA) VALUES ('Admin1', 'admin', 'Eric', 'Clapton', '+3819957432', 'admin@admin', '21 Baker Street', 'Mart 30.1945', 'Administrator');
+
 INSERT INTO OCENA (komentar_ocena, vrednost_ocene) VALUES ('Odličan!', 5);
 
 INSERT INTO FITNES_CENTAR (NAZIVFC, ADRESAFC, TELEFONFC, EMAILFC) VALUES ('FTN Gym', 'Neke Ulice 22', '+3816455872', 'ftn.gym@gmail.com');
