@@ -17,21 +17,21 @@ INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Yoga
 INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Arms day', 'Istezanje i pokretnost mišića', 'Vežbanje', '30min');
 INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Yoga 3', 'Istezanje i pokretnost mišića', 'Istezanje', '30min');
 INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Burn It 2!', 'Trčanje i skakanje', 'Kondicioni trening', '45min');
-INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Burn It MAX!', 'Trčanje i skakanje', 'Kondicioni trening', '120min');
-INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Lift It!', 'Vežbe sa tegovima', 'Weight Lifting', '45min');
-INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Runing', 'Trčanje i skakanje', 'Kondicioni trening', '60min');
-INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Yoga 5', 'Istezanje i pokretnost mišića', 'Istezanje', '30min');
+--INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Burn It MAX!', 'Trčanje i skakanje', 'Kondicioni trening', '120min');
+--INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Lift It!', 'Vežbe sa tegovima', 'Weight Lifting', '45min');
+--INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Runing', 'Trčanje i skakanje', 'Kondicioni trening', '60min');
+--INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Yoga 5', 'Istezanje i pokretnost mišića', 'Istezanje', '30min');
 INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Yoga 4', 'Istezanje i pokretnost mišića', 'Istezanje', '30min');
-INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Aerobik 1', 'Istezanje i pokretnost mišića', 'Vežbanje', '30min');
+--INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Aerobik 1', 'Istezanje i pokretnost mišića', 'Vežbanje', '30min');
 INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Rekreativni trening', 'Trčanje i skakanje', 'Kondicioni trening', '45min');
-INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Leg Day', 'Trčanje i skakanje', 'Muscle Building', '120min');
-INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Lift It!', 'Vežbe sa tegovima', 'Weight Lifting', '45min');
-INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Burn It!', 'Trčanje i skakanje', 'Kondicioni trening', '60min');
-INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Heavy Lifting 1', 'Istezanje i pokretnost mišića', 'Weight Lifting', '30min');
-INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Aerobik 2', 'Istezanje i pokretnost mišića', 'Istezanje', '30min');
-INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Aerobik 3', 'Istezanje i pokretnost mišića', 'Istezanje', '30min');
-INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Heavy Lifting 2', 'Trčanje i skakanje', 'Weight Lifting', '45min');
-INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Rekreacija', 'Trčanje i skakanje', 'Kondicioni trening', '120min');
+--INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Leg Day', 'Trčanje i skakanje', 'Muscle Building', '120min');
+--INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Lift It!', 'Vežbe sa tegovima', 'Weight Lifting', '45min');
+--INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Burn It!', 'Trčanje i skakanje', 'Kondicioni trening', '60min');
+--INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Heavy Lifting 1', 'Istezanje i pokretnost mišića', 'Weight Lifting', '30min');
+--INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Aerobik 2', 'Istezanje i pokretnost mišića', 'Istezanje', '30min');
+--INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Aerobik 3', 'Istezanje i pokretnost mišića', 'Istezanje', '30min');
+--INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Heavy Lifting 2', 'Trčanje i skakanje', 'Weight Lifting', '45min');
+--INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Rekreacija', 'Trčanje i skakanje', 'Kondicioni trening', '120min');
 
 
 INSERT INTO OCENA (komentar_ocena, vrednost_ocene) VALUES ('Odličan!', 5);
