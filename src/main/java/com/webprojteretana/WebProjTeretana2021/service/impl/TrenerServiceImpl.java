@@ -61,4 +61,14 @@ public class TrenerServiceImpl implements TrenerService {
     public Trener login(String email, String lozinka){
         return  this.trenerRepository.findByEmailAndLozinka(email, lozinka);
     }
+
+    @Override
+    public void aktivirajNalog(Long id){
+        Trener trener = trenerRepository.getOne(id);
+
+        if (trener.getAktivan().equals(false)) {
+            trener.setAktivan(true);
+        }
+        trenerRepository.save(trener);
+    }
 }

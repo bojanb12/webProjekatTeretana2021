@@ -67,17 +67,26 @@ $(document).on("submit", "form", function(event){
                     localStorage.setItem('lozinka', data['lozinka']);
                     localStorage.setItem('uloga', data['uloga']);
                     localStorage.setItem('korisnickoIme', data['korisnickoIme']);
+                    localStorage.setItem('aktivan', data['aktivan']);
+
 
 
                     var ulogaUlogovanogKorisnika = localStorage.getItem('uloga');
                     var korisnickoImeUlogovanogKorisnika = localStorage.getItem('korisnickoIme');
+                    var nalogAktivan = localStorage.getItem('aktivan');
 
                     console.log("Ovo je postavljena uloga ulogovanog korisnika:" + ulogaUlogovanogKorisnika);
+                    console.log("Ovo je stanje naloga trenera:" + nalogAktivan);
+                    if (nalogAktivan == 'true'){
 
+                        alert("Ulogovan je trener " + korisnickoImeUlogovanogKorisnika + " .");
+                        window.location.href = "pocetnaTrener.html";
 
-                    alert("Ulogovan je trener " + korisnickoImeUlogovanogKorisnika + " .");
-                    window.location.href = "pocetnaTrener.html";
-
+                    }
+                    else{
+                        alert("Nalog za " + korisnickoImeUlogovanogKorisnika + " nije aktiviran od strane administratora.");
+                        window.location.href = "index.html";
+                    }
 
                 },
                 error: function (data) {
