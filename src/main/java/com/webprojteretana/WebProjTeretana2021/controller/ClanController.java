@@ -63,17 +63,11 @@ public class ClanController {
             value = "/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE)  // tip odgovora
     public ResponseEntity<ClanDTO> pregledClana(@PathVariable(name = "id") Long id) {
-        // Dobavljamo zaposlenog po ID-u
+
         Clan clan = this.clanService.findOne(id);
 
-        // Kreiramo objekat klase EmployeeDTO
         ClanDTO korisnikDTO = new ClanDTO(clan.getId(), clan.getKorisnickoIme(), clan.getLozinka(), clan.getIme(), clan.getPrezime(), clan.getBrojTel(), clan.getEmail(), clan.getAdresa(), clan.getDatumRodjenja(), clan.getAktivan(), clan.getUloga());
 
-
-        // Vraćamo ResponseEntity
-        // ResponseEntity predstavlja ceo HTTP odgovor: status kod, zaglavlja i body.
-        // Možemo u potpunosti da kontrolišemo šta će se nalaziti u odgovoru koji želimo da vratimo.
-        // Ako je došlo do greške postavljamo drugi HttpStatus npr. HttpStatus.BAD_REQUEST
         return new ResponseEntity<>(korisnikDTO, HttpStatus.OK);
     }
 

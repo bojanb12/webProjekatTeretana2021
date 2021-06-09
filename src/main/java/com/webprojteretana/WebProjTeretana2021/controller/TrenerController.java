@@ -63,17 +63,12 @@ public class TrenerController {
             value = "/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE)  // tip odgovora
     public ResponseEntity<TrenerDTO> pregledTrenera(@PathVariable(name = "id") Long id) {
-        // Dobavljamo zaposlenog po ID-u
+
         Trener trener = this.trenerService.findOne(id);
 
-        // Kreiramo objekat klase EmployeeDTO
+
         TrenerDTO trenerDTO = new TrenerDTO(trener.getId(), trener.getKorisnickoIme(), trener.getLozinka(), trener.getIme(), trener.getPrezime(), trener.getBrojTel(), trener.getEmail(), trener.getAdresa(), trener.getDatumRodjenja(), trener.getAktivan(), trener.getUloga());
 
-
-        // Vraćamo ResponseEntity
-        // ResponseEntity predstavlja ceo HTTP odgovor: status kod, zaglavlja i body.
-        // Možemo u potpunosti da kontrolišemo šta će se nalaziti u odgovoru koji želimo da vratimo.
-        // Ako je došlo do greške postavljamo drugi HttpStatus npr. HttpStatus.BAD_REQUEST
         return new ResponseEntity<>(trenerDTO, HttpStatus.OK);
     }
 
