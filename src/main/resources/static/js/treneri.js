@@ -33,16 +33,18 @@ $(document).ready(function () {
     });
 });
 
+//dugme za aktiviranje naloga trenera
 $(document).on('click', '.btnAktiviraj', function () {
 
     let trenerId = this.dataset.id;
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8083/api/treneri/aktiviraj/" + trenerId,  // this.id je button id, a kao button id je postavljen id zaposlenog
+        url: "http://localhost:8083/api/treneri/aktiviraj/" + trenerId,
         dataType: "json",
         success: function (data) {
-            window.location.href = "treneri.html";                             // prikaži taj element
+            window.location.href = "treneri.html";
+            alert("Registracija potvrđena.");
         },
         error: function () {
             console.log("Greška!");

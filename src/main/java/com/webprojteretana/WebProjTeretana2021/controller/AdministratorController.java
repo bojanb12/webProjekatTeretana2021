@@ -63,17 +63,11 @@ public class AdministratorController {
             value = "/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE)  // tip odgovora
     public ResponseEntity<AdministratorDTO> pregledAdministratora(@PathVariable(name = "id") Long id) {
-        // Dobavljamo zaposlenog po ID-u
+
         Administrator administrator = this.administratorService.findOne(id);
 
-        // Kreiramo objekat klase EmployeeDTO
         AdministratorDTO administratorDTO = new AdministratorDTO(administrator.getId(), administrator.getKorisnickoIme(), administrator.getLozinka(), administrator.getIme(), administrator.getPrezime(), administrator.getBrojTel(), administrator.getEmail(), administrator.getAdresa(), administrator.getDatumRodjenja(), administrator.getUloga());
 
-
-        // Vraćamo ResponseEntity
-        // ResponseEntity predstavlja ceo HTTP odgovor: status kod, zaglavlja i body.
-        // Možemo u potpunosti da kontrolišemo šta će se nalaziti u odgovoru koji želimo da vratimo.
-        // Ako je došlo do greške postavljamo drugi HttpStatus npr. HttpStatus.BAD_REQUEST
         return new ResponseEntity<>(administratorDTO, HttpStatus.OK);
     }
 }

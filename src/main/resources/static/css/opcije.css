@@ -1,9 +1,9 @@
 .registracija {
 
   padding: 15px;
-  position: apsolute;
+  position: absolute;
   align: center;
-  top: 50%;
+  top: 60%;
   left: 50%;
   -ms-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translate(-50%,-50%);
