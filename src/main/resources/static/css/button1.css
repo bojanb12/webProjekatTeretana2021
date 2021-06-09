@@ -1,0 +1,22 @@
+.button1{
+
+     margin: 0;
+     top: 50%;
+     left: 50%;
+     -ms-transform: translate(-50%, -50%);
+     transform: translate(-50%, -50%);
+     text-align: center;
+     box-shadow: 6px 6px 7px rgba(0,0,0,0.3);
+     background: #68decd;
+     color:#fff;
+     font-weight: bold;
+     font-family:Futura;
+     font-size:1.2rem;
+     padding: 1rem 2rem;
+     text-decoration: none;
+     font-size: 16px;
+}
+
+.paragraph{
+    aligh: center;
+}
