@@ -31,19 +31,30 @@ public class TrenerServiceImpl implements TrenerService {
 
     @Override
     public List<Trener> findAll() {
-        return null;
+        List<Trener> treneri = this.trenerRepository.findAll();
+        return treneri;
     }
 
     @Override
     public Trener update(Trener trener) throws Exception {
-        return null;
+        Trener trenerToUpdate = this.trenerRepository.getOne(trener.getId());
+        if (trenerToUpdate == null) {
+            throw new Exception("Trener doesn't exist!");
+        }
+
+        // Postavljanje novog radnog mesta
+        trenerToUpdate.setAktivan(trener.getAktivan());
+
+        // Čuvanje u bazi
+        Trener savedTrener = this.trenerRepository.save(trenerToUpdate);
+        return savedTrener;
     }
 
 
     @Override
     public Trener findOne(Long id) {
-        return trenerRepository.getOne(id);
-
+        Trener trener = this.trenerRepository.getOne(id);
+        return trener;
     }
 
     @Override
