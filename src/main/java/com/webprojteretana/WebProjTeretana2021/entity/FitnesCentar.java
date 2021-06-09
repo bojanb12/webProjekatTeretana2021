@@ -35,6 +35,24 @@ public class FitnesCentar implements Serializable{
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Sala> sale = new HashSet<>();
 
+    public FitnesCentar() {
+    }
+
+    public FitnesCentar(String nazivFC, String adresaFC, String telefonFC, String emailFC) {
+        this.nazivFC = nazivFC;
+        this.adresaFC = adresaFC;
+        this.telefonFC = telefonFC;
+        this.emailFC = emailFC;
+    }
+
+    public FitnesCentar(Long id, String nazivFC, String adresaFC, String telefonFC, String emailFC) {
+        this.id = id;
+        this.nazivFC = nazivFC;
+        this.adresaFC = adresaFC;
+        this.telefonFC = telefonFC;
+        this.emailFC = emailFC;
+    }
+
     //geteri i seteri:
 
     public Long getId() {

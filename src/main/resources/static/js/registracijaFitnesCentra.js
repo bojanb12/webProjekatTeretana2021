@@ -31,11 +31,10 @@ $(document).on("submit", "form", function(event){
 function formToJSON(nazivFC, adresaFC, telefonFC, emailFC){
     return JSON.stringify(
         {
-
-        "nazivFC" = nazivFC,
-        "adresaFC" = adresaFC,
-        "telefonFC" = telefonFC,
-        "emailFC" = emailFC
+        "nazivFC": nazivFC,
+        "adresaFC": adresaFC,
+        "telefonFC": telefonFC,
+        "emailFC": emailFC
 
         }
     );
