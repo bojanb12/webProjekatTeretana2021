@@ -40,7 +40,7 @@ public class Trener implements Serializable{
     private String datumRodjenja;
 
     @Column(nullable = false)
-    private Boolean aktivan = true;
+    private Boolean aktivan;
 
     @Column(nullable = false)
     private String uloga;

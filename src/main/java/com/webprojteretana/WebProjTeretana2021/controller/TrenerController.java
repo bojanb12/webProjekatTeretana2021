@@ -116,4 +116,14 @@ public class TrenerController {
         return new ResponseEntity<>(trenerDTOS, HttpStatus.OK);
     }
 
+    //metoda za potvrdu registracije ili gašenje naloga
+    @GetMapping(
+            value = "/aktiviraj/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE)  // tip odgovora
+    public ResponseEntity<TrenerDTO> promeniAktivan(@PathVariable(name = "id") Long id) {
+
+        this.trenerService.aktivirajNalog(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

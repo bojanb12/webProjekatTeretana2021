@@ -16,4 +16,6 @@ public interface TrenerService {
     Trener findOne(Long id);
 
     Trener login(String email, String lozinka);
+
+    void aktivirajNalog(Long id); // metoda za aktiviranje registrovanog naloga trenera od strane admina
 }

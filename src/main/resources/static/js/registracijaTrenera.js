@@ -11,7 +11,7 @@ $(document).on("submit", "form", function(event){
     var email = $("#email").val();
     var adresa = $("#adresa").val();
     var datumRodjenja = $("#datumRodjenja").val();
-    var aktivan = true;
+    var aktivan = false;
     var uloga = 'Trener';
 
     //var danas = new Date(); // datum registracije
