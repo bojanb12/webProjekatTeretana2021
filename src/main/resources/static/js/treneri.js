@@ -16,6 +16,7 @@ $(document).ready(function () {
                 row += "<td>" + trener.brojTel + "</td>";
                 row += "<td>" + trener.adresa + "</td>";
                 row += "<td>" + trener.email + "</td>";
+                row += "<td>" + trener.datumRodjenja + "</td>";
                 row += "<td>" + trener.aktivan + "</td>";
 
                 //dugme za aktivaciju naloga trenera (administrator mora da potvrdi registraciju)
@@ -43,8 +44,9 @@ $(document).on('click', '.btnAktiviraj', function () {
         url: "http://localhost:8083/api/treneri/aktiviraj/" + trenerId,
         dataType: "json",
         success: function (data) {
-            window.location.href = "treneri.html";
             alert("Registracija potvrđena.");
+            window.location.href = "treneri.html";
+
         },
         error: function () {
             console.log("Greška!");
