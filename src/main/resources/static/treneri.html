@@ -18,6 +18,7 @@
 
 
     <script src="js/treneri.js"></script>
+    <script src="js/sortiranjeTabele.js"></script>
 
 </head>
 
@@ -30,12 +31,12 @@
         <div class="container">
             <table id="treneri">
                 <tr>
-                    <th>Ime</th>
-                    <th>Prezime</th>
-                    <th>Telefon</th>
+                    <th onclick="sortTableTreneri(0)">Ime</th>
+                    <th onclick="sortTableTreneri(1)">Prezime</th>
+                    <th >Telefon</th>
                     <th>Adresa</th>
                     <th>Email</th>
-                    <th>Aktiviran</th>
+                    <th onclick="sortTableTreneri(5)">Aktiviran</th>
                     <th></th>
                 </tr>
             </table>

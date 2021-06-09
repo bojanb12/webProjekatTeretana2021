@@ -10,7 +10,7 @@ $(document).ready(function () {
 
             for (let trener of response) {
 
-                let row = "<tr>";
+                var  row = "<tr>";
                 row += "<td>" + trener.naziv + "</td>";
                 row += "<td>" + trener.tipTreninga + "</td>";
                 row += "<td>" + trener.trajanjeTreninga + "</td>";
