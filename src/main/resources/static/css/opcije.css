@@ -1,9 +1,9 @@
 .registracija {
 
   padding: 15px;
-  position: apsolute;
+  position: absolute;
   align: center;
-  top: 50%;
+  top: 60%;
   left: 50%;
   -ms-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -46,5 +46,16 @@
   -ms-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
+
+}
+
+.search{
+
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
 
 }

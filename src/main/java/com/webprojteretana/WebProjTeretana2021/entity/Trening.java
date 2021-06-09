@@ -53,6 +53,23 @@ public class Trening implements Serializable{
             inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
     private Set<Termin> termini = new HashSet<>();
 
+    public Trening() {
+    }
+
+    public Trening(Long id, String naziv, String opis, String tipTreninga, String trajanjeTreninga) {
+        this.id = id;
+        this.naziv = naziv;
+        this.opis = opis;
+        this.tipTreninga = tipTreninga;
+        this.trajanjeTreninga = trajanjeTreninga;
+    }
+
+    public Trening(String naziv, String opis, String tipTreninga, String trajanjeTreninga) {
+        this.naziv = naziv;
+        this.opis = opis;
+        this.tipTreninga = tipTreninga;
+        this.trajanjeTreninga = trajanjeTreninga;
+    }
     //geteri i seteri:
 
     public Long getId() {

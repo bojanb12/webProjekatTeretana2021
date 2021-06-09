@@ -21,7 +21,29 @@
     transform: translate(-50%,-50%);
 
 }
+.tekst2 {
 
+
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    font-family:Futura;
+    font-size:3em;
+    font-size: 190%;
+    font-weight: bold;
+    text-align:left;
+    display:block;
+    position: absolute;
+    color:white;
+    top:0;
+    bottom:0;
+    margin:auto;
+    padding: 15px;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+
+}
 .tekst1 {
 
 

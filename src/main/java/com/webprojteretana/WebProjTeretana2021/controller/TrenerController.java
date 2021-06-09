@@ -80,39 +80,37 @@ public class TrenerController {
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TrenerDTO> updateTrener(@PathVariable Long id, @RequestBody TrenerDTO trenerDTO) throws Exception {
-        // Kreiramo objekat klase Employee, tako što za vrednosti atributa uzimamo
-        // vrednosti iz primljenog DTO objekta
+
         Trener trener = new Trener(trenerDTO.getKorisnickoIme(), trenerDTO.getLozinka(), trenerDTO.getIme(), trenerDTO.getPrezime(), trenerDTO.getBrojTel(), trenerDTO.getEmail(), trenerDTO.getAdresa(), trenerDTO.getDatumRodjenja(), trenerDTO.getAktivan(), trenerDTO.getUloga());
-        // Pošto menjamo postojeći objekat, u zahtevu ćemo dobiti i njegov ID
+
         trener.setId(id);
 
-        // Pozivanjem metode servisa ažuriramo podatke o zaposlenom
+
         Trener updatedTrener = trenerService.update(trener);
 
-        // Mapiramo ažuriranog zaposlenog na DTO objekat koji vraćamo kroz body odgovora
+
         TrenerDTO updatedTrenerDTO = new TrenerDTO(updatedTrener.getId(), updatedTrener.getKorisnickoIme(), updatedTrener.getLozinka(), updatedTrener.getIme(), updatedTrener.getPrezime(), updatedTrener.getBrojTel(), updatedTrener.getEmail(), updatedTrener.getAdresa(), updatedTrener.getDatumRodjenja(), updatedTrener.getAktivan(), updatedTrener.getUloga());
 
-        // Vraćamo odgovor 200 OK, a kroz body odgovora šaljemo podatke o ažuriranom zaposlenom
+
         return new ResponseEntity<>(updatedTrenerDTO, HttpStatus.OK);
     }
 
     //metoda za dobavljanje svih trenera
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<TrenerDTO>> getTreneri() {
-        // Pozivanjem metode servisa dobavljamo sve zaposlene
+
         List<Trener> trenerList = this.trenerService.findAll();
 
-        // Kreiramo listu DTO objekata koju ćemo vratiti u odgovoru na zahtev
+
         List<TrenerDTO> trenerDTOS = new ArrayList<>();
 
         for (Trener trener : trenerList) {
-            // Kreiramo EmployeeDTO za svakog zaposlenog, kojeg je vratila metoda findAll()
-            // i ubacujemo ga u listu employeeDTOS
+
             TrenerDTO trenerDTO = new TrenerDTO(trener.getId(), trener.getKorisnickoIme(), trener.getLozinka(), trener.getIme(), trener.getPrezime(), trener.getBrojTel(), trener.getEmail(), trener.getAdresa(), trener.getDatumRodjenja(), trener.getAktivan(), trener.getUloga());
             trenerDTOS.add(trenerDTO);
         }
 
-        // Vraćamo odgovor 200 OK, a kroz body odgovora šaljemo podatke o pronađenim zaposlenima
+
         return new ResponseEntity<>(trenerDTOS, HttpStatus.OK);
     }
 
