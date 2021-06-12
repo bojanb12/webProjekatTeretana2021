@@ -16,6 +16,11 @@ public class Termin implements Serializable{
     @Column(nullable = false)
     private String dan;
 
+    //da li cena da bude u terminu ili u treningu???
+    //treba staviti u prikazu treninga da se izlistaju i termini
+    @Column(nullable = false)
+    private String cena;
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Sala salaTermin;
 
