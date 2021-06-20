@@ -34,6 +34,19 @@ public class TerminDTO {
         this.treningTermin = treningTermin;
     }
 
+    public TerminDTO(Long id, String vreme, String dan, String cena) {
+        this.id = id;
+        this.vreme = vreme;
+        this.dan = dan;
+        this.cena = cena;
+    }
+
+    public TerminDTO(String vreme, String dan, String cena) {
+        this.vreme = vreme;
+        this.dan = dan;
+        this.cena = cena;
+    }
+
     public Long getId() {
         return id;
     }
