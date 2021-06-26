@@ -2,9 +2,11 @@ package com.webprojteretana.WebProjTeretana2021.controller;
 
 import com.webprojteretana.WebProjTeretana2021.entity.Clan;
 import com.webprojteretana.WebProjTeretana2021.entity.FitnesCentar;
+import com.webprojteretana.WebProjTeretana2021.entity.Trening;
 import com.webprojteretana.WebProjTeretana2021.entity.dto.ClanDTO;
 import com.webprojteretana.WebProjTeretana2021.entity.dto.FitnesCentarDTO;
 import com.webprojteretana.WebProjTeretana2021.entity.dto.LoginClanDTO;
+import com.webprojteretana.WebProjTeretana2021.entity.dto.TreningDTO;
 import com.webprojteretana.WebProjTeretana2021.service.ClanService;
 import com.webprojteretana.WebProjTeretana2021.service.FitnesCentarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController
@@ -51,6 +56,25 @@ public class FitnesCentarController {
 
 
         return new ResponseEntity<>(fitnesCentarDTO, HttpStatus.OK);
+    }
+
+    //metoda za dobavljanje svih registrovanih fitnes centara (za admina)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<FitnesCentarDTO>> getFitnesCentri() {
+
+        List<FitnesCentar> fitnesCentarList = this.fitnesCentarService.findAll();
+
+
+        List<FitnesCentarDTO> fitnesCentarDTOS = new ArrayList<>();
+
+        for (FitnesCentar fitnesCentar : fitnesCentarList) {
+
+            FitnesCentarDTO fitnesCentarDTO = new FitnesCentarDTO(fitnesCentar.getId(), fitnesCentar.getNazivFC(), fitnesCentar.getAdresaFC(), fitnesCentar.getTelefonFC(), fitnesCentar.getEmailFC());
+            fitnesCentarDTOS.add(fitnesCentarDTO);
+        }
+
+
+        return new ResponseEntity<>(fitnesCentarDTOS, HttpStatus.OK);
     }
 
 
