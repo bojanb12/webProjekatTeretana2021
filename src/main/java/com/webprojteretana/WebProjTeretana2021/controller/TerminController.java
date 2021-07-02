@@ -3,9 +3,11 @@ package com.webprojteretana.WebProjTeretana2021.controller;
 import com.webprojteretana.WebProjTeretana2021.entity.Clan;
 import com.webprojteretana.WebProjTeretana2021.entity.FitnesCentar;
 import com.webprojteretana.WebProjTeretana2021.entity.Termin;
+import com.webprojteretana.WebProjTeretana2021.entity.Trener;
 import com.webprojteretana.WebProjTeretana2021.entity.dto.ClanDTO;
 import com.webprojteretana.WebProjTeretana2021.entity.dto.FitnesCentarDTO;
 import com.webprojteretana.WebProjTeretana2021.entity.dto.TerminDTO;
+import com.webprojteretana.WebProjTeretana2021.entity.dto.TrenerDTO;
 import com.webprojteretana.WebProjTeretana2021.service.FitnesCentarService;
 import com.webprojteretana.WebProjTeretana2021.service.TerminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +51,24 @@ public class TerminController {
         TerminDTO terminDTO = new TerminDTO(termin.getId(), termin.getVreme(), termin.getDan(), termin.getCena(), termin.getSalaTermin(), termin.getTreningTermin());
 
         return new ResponseEntity<>(terminDTO, HttpStatus.OK);
+    }
+
+    // metoda za azuriranje postojeceg termina
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TerminDTO> updateTermin(@PathVariable Long id, @RequestBody TerminDTO terminDTO) throws Exception {
+
+        Termin termin = new Termin(terminDTO.getVreme(), terminDTO.getDan(), terminDTO.getCena(), terminDTO.getSalaTermin(), terminDTO.getTreningTermin());
+
+        termin.setId(id);
+
+
+        Termin updatedTermin = terminService.update(termin);
+
+
+        TerminDTO updatedTerminDTO = new TerminDTO(updatedTermin.getId(), updatedTermin.getVreme(), updatedTermin.getDan(), updatedTermin.getCena(), updatedTermin.getSalaTermin(), updatedTermin.getTreningTermin());
+
+
+        return new ResponseEntity<>(updatedTerminDTO, HttpStatus.OK);
     }
 }
