@@ -35,6 +35,9 @@ INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Burn
 --INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Heavy Lifting 2', 'Trčanje i skakanje', 'Weight Lifting', '45min');
 --INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Rekreacija', 'Trčanje i skakanje', 'Kondicioni trening', '120min');
 
+INSERT INTO TERMIN (VREME, DAN, CENA, SLOBODNIH_MESTA) VALUES ('17:30', 'Utorak', '1500', '10');
+
+
 
 INSERT INTO OCENA (komentar_ocena, vrednost_ocene) VALUES ('Odličan!', 5);
 
@@ -44,5 +47,7 @@ INSERT INTO FITNES_CENTAR (NAZIVFC, ADRESAFC, TELEFONFC, EMAILFC) VALUES ('PMF G
 INSERT INTO SALA (KAPACITET, OZNAKA) VALUES (20, 'Sala 1');
 
 INSERT INTO NALAZI (sala_id, fitnescentar_id) VALUES (1, 1);
+
+INSERT INTO TRENINGTERMIN (TERMIN_ID, TRENING_ID) VALUES (1, 1);
 
 --INSERT INTO KORISNIK (korisnicko_ime, LOZINKA, IME, PREZIME, ULOGA, broj_tel, EMAIL, ADRESA, datum_rodjenja, AKTIVAN) VALUES ('FTN Gym', 'Neke Ulice 22', '+3816455872', 'ftn.gym@gmail.com', 'ftn.gym@gmail.com', 'ftn.gym@gmail.com', 'ftn.gym@gmail.com', 'ftn.gym@gmail.com', 'ftn.gym@gmail.com', TRUE);

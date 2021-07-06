@@ -48,7 +48,7 @@ public class TerminController {
 
         Termin termin = this.terminService.findOne(id);
 
-        TerminDTO terminDTO = new TerminDTO(termin.getId(), termin.getVreme(), termin.getDan(), termin.getCena(), termin.getSalaTermin(), termin.getTreningTermin());
+        TerminDTO terminDTO = new TerminDTO(termin.getId(), termin.getVreme(), termin.getDan(), termin.getCena(), termin.getSalaTermin(), termin.getTreningTermin(), termin.getSlobodnihMesta());
 
         return new ResponseEntity<>(terminDTO, HttpStatus.OK);
     }
@@ -58,7 +58,7 @@ public class TerminController {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TerminDTO> updateTermin(@PathVariable Long id, @RequestBody TerminDTO terminDTO) throws Exception {
 
-        Termin termin = new Termin(terminDTO.getVreme(), terminDTO.getDan(), terminDTO.getCena(), terminDTO.getSalaTermin(), terminDTO.getTreningTermin());
+        Termin termin = new Termin(terminDTO.getVreme(), terminDTO.getDan(), terminDTO.getCena(), terminDTO.getSalaTermin(), terminDTO.getTreningTermin(), terminDTO.getSlobodnihMesta());
 
         termin.setId(id);
 

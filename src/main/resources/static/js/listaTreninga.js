@@ -8,12 +8,13 @@ $(document).ready(function () {
         success: function (response) {
             console.log("SUCCESS:\n", response);
 
-            for (let trener of response) {
+            for (let trening of response) {
 
                 var  row = "<tr>";
-                row += "<td>" + trener.naziv + "</td>";
-                row += "<td>" + trener.tipTreninga + "</td>";
-                row += "<td>" + trener.trajanjeTreninga + "</td>";
+                row += "<td>" + trening.naziv + "</td>";
+                row += "<td>" + trening.tipTreninga + "</td>";
+                row += "<td>" + trening.trajanjeTreninga + "</td>";
+               // row += "<td>" + trening.terminTreninga.getVreme() + "</td>";
 
 
                 //dugme za aktivaciju naloga trenera (administrator mora da potvrdi registraciju)

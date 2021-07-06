@@ -16,18 +16,57 @@ public class Termin implements Serializable{
     @Column(nullable = false)
     private String dan;
 
-    //da li cena da bude u terminu ili u treningu???
-    //treba staviti u prikazu treninga da se izlistaju i termini
     @Column(nullable = false)
     private String cena;
+
+    @Column(nullable = false)
+    private Integer slobodnihMesta;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Sala salaTermin;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "treningtermin",
+            joinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
     private Trening treningTermin;
 
+
+
     public Termin() {
+    }
+
+    public Termin(Long id, String vreme, String dan, String cena, Sala salaTermin, Trening treningTermin, Integer slobodnihMesta) {
+        this.id = id;
+        this.vreme = vreme;
+        this.dan = dan;
+        this.cena = cena;
+        this.salaTermin = salaTermin;
+        this.treningTermin = treningTermin;
+        this.slobodnihMesta = slobodnihMesta;
+    }
+
+    public Termin(String vreme, String dan, String cena, Sala salaTermin, Trening treningTermin, Integer slobodnihMesta) {
+        this.vreme = vreme;
+        this.dan = dan;
+        this.cena = cena;
+        this.salaTermin = salaTermin;
+        this.treningTermin = treningTermin;
+        this.slobodnihMesta = slobodnihMesta;
+    }
+
+    public Termin(String vreme, String dan, String cena, Sala salaTermin) {
+        this.vreme = vreme;
+        this.dan = dan;
+        this.cena = cena;
+        this.salaTermin = salaTermin;
+    }
+
+    public Termin(Long id, String vreme, String dan, String cena) {
+        this.id = id;
+        this.vreme = vreme;
+        this.dan = dan;
+        this.cena = cena;
     }
 
     public Termin(String vreme, String dan, String cena, Sala salaTermin, Trening treningTermin) {
@@ -47,21 +86,29 @@ public class Termin implements Serializable{
         this.treningTermin = treningTermin;
     }
 
-    public Termin(String vreme, String dan, String cena) {
-        this.vreme = vreme;
-        this.dan = dan;
-        this.cena = cena;
+    public Long getId() {
+        return id;
     }
 
-    public Termin(Long id, String vreme, String dan, String cena) {
+    public void setId(Long id) {
         this.id = id;
-        this.vreme = vreme;
-        this.dan = dan;
-        this.cena = cena;
     }
 
-    //geteri i seteri:
+    public String getVreme() {
+        return vreme;
+    }
 
+    public void setVreme(String vreme) {
+        this.vreme = vreme;
+    }
+
+    public String getDan() {
+        return dan;
+    }
+
+    public void setDan(String dan) {
+        this.dan = dan;
+    }
 
     public String getCena() {
         return cena;
@@ -71,43 +118,27 @@ public class Termin implements Serializable{
         this.cena = cena;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getVreme() {
-        return vreme;
-    }
-
-    public String getDan() {
-        return dan;
-    }
-
     public Sala getSalaTermin() {
         return salaTermin;
-    }
-
-    public Trening getTreningTermin() {
-        return treningTermin;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setVreme(String vreme) {
-        this.vreme = vreme;
-    }
-
-    public void setDan(String dan) {
-        this.dan = dan;
     }
 
     public void setSalaTermin(Sala salaTermin) {
         this.salaTermin = salaTermin;
     }
 
+    public Trening getTreningTermin() {
+        return treningTermin;
+    }
+
     public void setTreningTermin(Trening treningTermin) {
         this.treningTermin = treningTermin;
+    }
+
+    public Integer getSlobodnihMesta() {
+        return slobodnihMesta;
+    }
+
+    public void setSlobodnihMesta(Integer slobodnihMesta) {
+        this.slobodnihMesta = slobodnihMesta;
     }
 }

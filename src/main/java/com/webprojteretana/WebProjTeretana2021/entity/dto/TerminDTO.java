@@ -13,6 +13,7 @@ public class TerminDTO {
     private String cena;
     private Sala salaTermin;
     private Trening treningTermin;
+    private Integer slobodnihMesta;
 
     public TerminDTO() {
     }
@@ -34,6 +35,14 @@ public class TerminDTO {
         this.treningTermin = treningTermin;
     }
 
+    public TerminDTO(String vreme, String dan, String cena, Sala salaTermin, Trening treningTermin, Integer slobodnihMesta) {
+        this.vreme = vreme;
+        this.dan = dan;
+        this.cena = cena;
+        this.salaTermin = salaTermin;
+        this.treningTermin = treningTermin;
+    }
+
     public TerminDTO(Long id, String vreme, String dan, String cena) {
         this.id = id;
         this.vreme = vreme;
@@ -45,6 +54,16 @@ public class TerminDTO {
         this.vreme = vreme;
         this.dan = dan;
         this.cena = cena;
+    }
+
+    public TerminDTO(Long id, String vreme, String dan, String cena, Sala salaTermin, Trening treningTermin, Integer slobodnihMesta) {
+        this.id = id;
+        this.vreme = vreme;
+        this.dan = dan;
+        this.cena = cena;
+        this.salaTermin = salaTermin;
+        this.treningTermin = treningTermin;
+        this.slobodnihMesta = slobodnihMesta;
     }
 
     public Long getId() {
@@ -93,5 +112,13 @@ public class TerminDTO {
 
     public void setTreningTermin(Trening treningTermin) {
         this.treningTermin = treningTermin;
+    }
+
+    public Integer getSlobodnihMesta() {
+        return slobodnihMesta;
+    }
+
+    public void setSlobodnihMesta(Integer slobodnihMesta) {
+        this.slobodnihMesta = slobodnihMesta;
     }
 }
