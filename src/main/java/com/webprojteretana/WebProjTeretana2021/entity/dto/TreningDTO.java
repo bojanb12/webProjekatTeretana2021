@@ -1,5 +1,7 @@
 package com.webprojteretana.WebProjTeretana2021.entity.dto;
 
+import com.webprojteretana.WebProjTeretana2021.entity.Termin;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +15,7 @@ public class TreningDTO {
     private String opis;
     private String tipTreninga;
     private String trajanjeTreninga;
+    //private Termin terminTreninga;
 
     public TreningDTO() {
     }
