@@ -19,14 +19,19 @@ public class Termin implements Serializable{
     @Column(nullable = false)
     private String cena;
 
+    @Column(nullable = false)
+    private Integer slobodnihMesta;
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Sala salaTermin;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "treningtermin",
+            joinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
     private Trening treningTermin;
 
-    @Column(nullable = false)
-    private Integer slobodnihMesta;
+
 
     public Termin() {
     }

@@ -47,11 +47,8 @@ public class Trening implements Serializable{
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Trener trenerTreninga;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "treningTermin",
-            joinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
-    private Set<Termin> termini = new HashSet<>();
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Termin terminTreninga;
 
     public Trening() {
     }
@@ -108,9 +105,7 @@ public class Trening implements Serializable{
         return trenerTreninga;
     }
 
-    public Set<Termin> getTermini() {
-        return termini;
-    }
+
 
     public void setId(Long id) {
         this.id = id;
@@ -148,7 +143,11 @@ public class Trening implements Serializable{
         this.trenerTreninga = trenerTreninga;
     }
 
-    public void setTermini(Set<Termin> termini) {
-        this.termini = termini;
+    public Termin getTerminTreninga() {
+        return terminTreninga;
+    }
+
+    public void setTerminTreninga(Termin terminTreninga) {
+        this.terminTreninga = terminTreninga;
     }
 }
