@@ -24,6 +24,7 @@
 
 
   <script src="js/listaTreninga.js"></script>
+  <!--<script src="js/listaTermina.js"></script>-->
 
 </head>
 
@@ -31,74 +32,75 @@
 
 
 <div id="sviTreninzi">
-  <h1 class = "tekst">Lista treninga</h1>
-  <br><br>
+ <h1 class = "tekst">Lista treninga</h1>
+ <br><br>
 
-  <div class="container">
-    <input class = "search" type="text" id="pretragaNaziv" onkeyup="pretragaNaziva()" placeholder="Pretraži po nazivu.." title="Unesite naziv">
-    <input class = "search" type="text" id="pretragaTip" onkeyup="pretragaTipa()" placeholder="Pretraži po tipu.." title="Unesite tip">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+ <div class="container">
+   <input class = "search" type="text" id="pretragaNaziv" onkeyup="pretragaNaziva()" placeholder="Pretraži po nazivu.." title="Unesite naziv">
+   <input class = "search" type="text" id="pretragaTip" onkeyup="pretragaTipa()" placeholder="Pretraži po tipu.." title="Unesite tip">
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
 
 
 
-  </div>
+ </div>
 
-  <div class="container">
+ <div class="container">
 
-    <br>
-    <br>
-    <table id="treninzi">
-      <tr>
-        <th onclick="sortTableTreninzi(0)">Naziv</th>
-        <th onclick="sortTableTreninzi(1)">Tip</th>
-        <th onclick="sortTableTreninzi(2)">Trajanje</th>
-        <th></th>
-      </tr>
-    </table>
-  </div>
+   <br>
+   <br>
+   <table id="treninzi">
+     <tr>
+       <th onclick="sortTableTreninzi(0)">Naziv</th>
+       <th onclick="sortTableTreninzi(1)">Tip</th>
+       <th id = "trajanje" onclick="sortTableTreninzi(2)">Trajanje</th>
+       <!--<th id = "vreme" onclick="sortTableTreninzi(3)">Vreme</th>-->
+       <th></th>
+     </tr>
+   </table>
+ </div>
 </div>
 
 <div id="jedanTrening" hidden>
-  <h2 style="text-align:center">Trener Profile</h2>
-  <div class="card">
-    <h1 id="naziv"></h1>
-    <h1 id="opis"></h1>
-    <br>
-  </div>
+ <h2 style="text-align:center">Trener Profile</h2>
+ <div class="card">
+   <h1 id="naziv"></h1>
+   <h1 id="opis"></h1>
+   <br>
+ </div>
 
 </div>
 
 <div>
-  <a type="button" href="pocetna.html" class="button1">Nazad</a>
+ <a type="button" href="pocetna.html" class="button1">Nazad</a>
 </div>
 
 </body>

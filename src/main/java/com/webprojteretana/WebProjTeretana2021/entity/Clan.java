@@ -1,18 +1,16 @@
 package com.webprojteretana.WebProjTeretana2021.entity;
-// clan (nasledjuje korisnika)
+// clan
 import java.io.Serializable;
 import java.util.ArrayList;
-import javax.persistence.*;
-import javax.persistence.*;
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "clan")
-public class Clan implements Serializable{
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name = "clan")
+public class Clan implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,8 +48,8 @@ public class Clan implements Serializable{
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "odradio_trening",
-            joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
+           joinColumns = @JoinColumn(name = "clan_id", referencedColumnName = "id"),
+           inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
     private Set<Trening> odradjeniTreninzi = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

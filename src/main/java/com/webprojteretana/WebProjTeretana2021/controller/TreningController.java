@@ -1,10 +1,13 @@
 package com.webprojteretana.WebProjTeretana2021.controller;
 
 
+import com.webprojteretana.WebProjTeretana2021.entity.Termin;
 import com.webprojteretana.WebProjTeretana2021.entity.Trener;
 import com.webprojteretana.WebProjTeretana2021.entity.Trening;
+import com.webprojteretana.WebProjTeretana2021.entity.dto.TerminDTO;
 import com.webprojteretana.WebProjTeretana2021.entity.dto.TrenerDTO;
 import com.webprojteretana.WebProjTeretana2021.entity.dto.TreningDTO;
+import com.webprojteretana.WebProjTeretana2021.service.TerminService;
 import com.webprojteretana.WebProjTeretana2021.service.TrenerService;
 import com.webprojteretana.WebProjTeretana2021.service.TreningService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +30,9 @@ public class TreningController {
     private TreningService treningService;
 
     @Autowired
+    private TerminService terminService;
+
+    @Autowired
     public TreningController(TreningService treningService) {this.treningService = treningService;}
 
     //metoda za dobavljanje svih treninga
@@ -36,17 +42,20 @@ public class TreningController {
         List<Trening> treningList = this.treningService.findAll();
 
 
+
         List<TreningDTO> treningDTOS = new ArrayList<>();
+
 
         for (Trening trening : treningList) {
 
-            TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(), trening.getTipTreninga(), trening.getTrajanjeTreninga());
+            TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(), trening.getTipTreninga(), trening.getTrajanjeTreninga(), trening.getTerminTreninga());
             treningDTOS.add(treningDTO);
         }
 
 
         return new ResponseEntity<>(treningDTOS, HttpStatus.OK);
     }
+
 
     @GetMapping(
             value = "/{id}",
@@ -56,7 +65,7 @@ public class TreningController {
         Trening trening = this.treningService.findOne(id);
 
 
-        TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(), trening.getTipTreninga(), trening.getTrajanjeTreninga());
+        TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(), trening.getTipTreninga(), trening.getTrajanjeTreninga(), trening.getTerminTreninga().getVreme());
 
         return new ResponseEntity<>(treningDTO, HttpStatus.OK);
     }
