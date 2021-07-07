@@ -1,6 +1,8 @@
 -- admin nalog za pristupanje admin funkcionalnostima
 INSERT INTO ADMINISTRATOR (KORISNICKO_IME, LOZINKA, IME, PREZIME, BROJ_TEL, EMAIL, ADRESA, DATUM_RODJENJA, ULOGA) VALUES ('Admin1', 'admin', 'Eric', 'Clapton', '+3819957432', 'admin@admin', '21 Baker Street', 'Mart 30.1945', 'Administrator');
 
+
+INSERT INTO CLAN (KORISNICKO_IME, LOZINKA, IME, PREZIME, BROJ_TEL, EMAIL, ADRESA, DATUM_RODJENJA, AKTIVAN, ULOGA) VALUES ('Clan1', 'clan1', 'Alice', 'Liddel', '+381600093', 'clan1@gmail.com', 'Wonderland Sreet 22', '08.11.1954.', TRUE, 'Clan');
 --trener
 INSERT INTO TRENER (KORISNICKO_IME, LOZINKA, IME, PREZIME, BROJ_TEL, EMAIL, ADRESA, DATUM_RODJENJA, AKTIVAN, ULOGA) VALUES ('TRENER1', 'TRENER1', 'Eric', 'Clapton', '+3819957432', 'TRENER@TRENER', '21 Baker Street', 'Mart 30.1945', TRUE, 'Trener');
 INSERT INTO TRENER (KORISNICKO_IME, LOZINKA, IME, PREZIME, BROJ_TEL, EMAIL, ADRESA, DATUM_RODJENJA, AKTIVAN, ULOGA) VALUES ('trenerPera', 'trener1', 'Pera', 'Peric', '+381444448', 'trener@gmail.com', 'Narodnog Fronta 40', '15.02.1978.', TRUE, 'Trener');
@@ -11,6 +13,7 @@ INSERT INTO TRENER (KORISNICKO_IME, LOZINKA, IME, PREZIME, BROJ_TEL, EMAIL, ADRE
 
 --INSERT INTO CLAN (KORISNICKO_IME, LOZINKA, IME, PREZIME, BROJ_TEL, EMAIL, ADRESA, DATUM_RODJENJA, AKTIVAN, ULOGA) VALUES ('alice22', 'trener2', 'Alice', 'Liddel', '+381600093', 'trener2@gmail.com', 'Wonderland Sreet 22', '08.11.1954.', TRUE, 'Clan');
 --INSERT INTO CLAN (KORISNICKO_IME, LOZINKA, IME, PREZIME, BROJ_TEL, EMAIL, ADRESA, DATUM_RODJENJA, AKTIVAN, ULOGA) VALUES ('TRENER1', 'clan', 'Eric', 'Clapton', '+3819957432', 'clan@clan', '21 Baker Street', 'Mart 30.1945', TRUE, 'Clan');
+
 
 --trening
 INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Lift It!', 'Vežbe sa tegovima', 'Weight Lifting', '45min');

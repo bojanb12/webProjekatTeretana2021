@@ -3,6 +3,7 @@ package com.webprojteretana.WebProjTeretana2021.service.impl;
 
 import com.webprojteretana.WebProjTeretana2021.entity.FitnesCentar;
 import com.webprojteretana.WebProjTeretana2021.entity.Termin;
+import com.webprojteretana.WebProjTeretana2021.entity.Trening;
 import com.webprojteretana.WebProjTeretana2021.repository.FitnesCentarRepository;
 import com.webprojteretana.WebProjTeretana2021.repository.TerminRepository;
 import com.webprojteretana.WebProjTeretana2021.service.TerminService;
@@ -32,7 +33,8 @@ public class TerminServiceImpl implements TerminService {
 
     @Override
     public List<Termin> findAll() {
-        return null;
+        List<Termin> termini = this.terminRepository.findAll();
+        return termini;
     }
 
     @Override

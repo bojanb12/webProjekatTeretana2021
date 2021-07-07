@@ -150,6 +150,7 @@ function formToJSON(email, lozinka) {
     );
 };
 
+
 /*$(document).ready(function () {
     $.ajax({
         type: "GET",

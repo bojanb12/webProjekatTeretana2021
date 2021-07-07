@@ -1,13 +1,7 @@
 package com.webprojteretana.WebProjTeretana2021.controller;
 
-import com.webprojteretana.WebProjTeretana2021.entity.Clan;
-import com.webprojteretana.WebProjTeretana2021.entity.FitnesCentar;
-import com.webprojteretana.WebProjTeretana2021.entity.Termin;
-import com.webprojteretana.WebProjTeretana2021.entity.Trener;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.ClanDTO;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.FitnesCentarDTO;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.TerminDTO;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.TrenerDTO;
+import com.webprojteretana.WebProjTeretana2021.entity.*;
+import com.webprojteretana.WebProjTeretana2021.entity.dto.*;
 import com.webprojteretana.WebProjTeretana2021.service.FitnesCentarService;
 import com.webprojteretana.WebProjTeretana2021.service.TerminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping(value="/api/termini")
@@ -25,6 +22,28 @@ public class TerminController {
 
     @Autowired
     public TerminController(TerminService terminService) {this.terminService = terminService;}
+
+
+    //metoda za dobavljanje svih termina
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<TerminDTO>> getTermini() {
+
+        List<Termin> terminList = this.terminService.findAll();
+
+
+
+        List<TerminDTO> terminDTOS = new ArrayList<>();
+
+
+        for (Termin termin : terminList) {
+
+            TerminDTO terminDTO = new TerminDTO(termin.getId(), termin.getVreme(), termin.getDan(), termin.getCena());
+            terminDTOS.add(terminDTO);
+        }
+
+
+        return new ResponseEntity<>(terminDTOS, HttpStatus.OK);
+    }
 
 
     // kreiranje termina

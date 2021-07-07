@@ -15,7 +15,8 @@ public class TreningDTO {
     private String opis;
     private String tipTreninga;
     private String trajanjeTreninga;
-    //private Termin terminTreninga;
+    private Termin terminTreninga;
+    private String vreme;
 
     public TreningDTO() {
     }
@@ -26,6 +27,25 @@ public class TreningDTO {
         this.opis = opis;
         this.tipTreninga = tipTreninga;
         this.trajanjeTreninga = trajanjeTreninga;
+    }
+
+    public TreningDTO(Long id, String naziv, String opis, String tipTreninga, String trajanjeTreninga, Termin terminTreninga) {
+        this.id = id;
+        this.naziv = naziv;
+        this.opis = opis;
+        this.tipTreninga = tipTreninga;
+        this.trajanjeTreninga = trajanjeTreninga;
+        this.terminTreninga = terminTreninga;
+    }
+
+    public TreningDTO(Long id, String naziv, String opis, String tipTreninga, String trajanjeTreninga, String vreme) {
+        this.id = id;
+        this.naziv = naziv;
+        this.opis = opis;
+        this.tipTreninga = tipTreninga;
+        this.trajanjeTreninga = trajanjeTreninga;
+        this.vreme = vreme;
+
     }
 
     public TreningDTO(String naziv, String opis, String tipTreninga, String trajanjeTreninga) {
@@ -73,5 +93,21 @@ public class TreningDTO {
 
     public void setTrajanjeTreninga(String trajanjeTreninga) {
         this.trajanjeTreninga = trajanjeTreninga;
+    }
+
+    public Termin getTerminTreninga() {
+        return terminTreninga;
+    }
+
+    public void setTerminTreninga(Termin terminTreninga) {
+        this.terminTreninga = terminTreninga;
+    }
+
+    public String getVreme() {
+        return vreme;
+    }
+
+    public void setVreme(String vreme) {
+        this.vreme = vreme;
     }
 }
