@@ -29,6 +29,40 @@ public class Sala implements Serializable{
             inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
     private Set<Termin> terminiSala = new HashSet<>();
 
+    public Sala() {
+    }
+
+    public Sala(Long id, Long kapacitet, String oznaka, FitnesCentar salaFC, Set<Termin> terminiSala) {
+        this.id = id;
+        this.kapacitet = kapacitet;
+        this.oznaka = oznaka;
+        this.salaFC = salaFC;
+        this.terminiSala = terminiSala;
+    }
+
+    public Sala(Long id, Long kapacitet, String oznaka, FitnesCentar salaFC) {
+        this.id = id;
+        this.kapacitet = kapacitet;
+        this.oznaka = oznaka;
+        this.salaFC = salaFC;
+    }
+
+    public Sala(Long kapacitet, String oznaka, FitnesCentar salaFC) {
+        this.kapacitet = kapacitet;
+        this.oznaka = oznaka;
+        this.salaFC = salaFC;
+    }
+
+    public Sala(Long id, Long kapacitet, String oznaka) {
+        this.id = id;
+        this.kapacitet = kapacitet;
+        this.oznaka = oznaka;
+    }
+
+    public Sala(Long kapacitet, String oznaka) {
+        this.kapacitet = kapacitet;
+        this.oznaka = oznaka;
+    }
 
     //geter i seteri:
 

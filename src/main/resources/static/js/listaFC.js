@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8083/api/fitnesCentri",
+        url: "http://localhost:8085/api/fitnesCentri",
         dataType: "json",
         success: function (response) {
             console.log("SUCCESS:\n", response);
@@ -21,7 +21,7 @@ $(document).ready(function () {
 
 
                 //dugme za dodavanje nove sale
-                let btn = "<button class='btnSala' data-id=" + fitnesCentar.id + ">Sale</button>";
+                let btn = "<button class='btnSale' data-id=" + fitnesCentar.id + ">Sale</button>";
                 row += "<td>" + btn + "</td>";
                 row += "</tr>";
 
@@ -33,6 +33,16 @@ $(document).ready(function () {
              alert("Greška!");
         }
     });
+});
+
+$(document).on('click', '.btnSale', function () {
+
+    let fitnesCentarId = this.dataset.id;
+    let fitnesCentarNaziv = this.dataset.nazivFC;
+    localStorage.setItem('fitnesCentarNaziv', fitnesCentarNaziv);
+    localStorage.setItem('fitnesCentarID', fitnesCentarId);
+    window.location.href = "listaSala.html";
+
 });
 
  /*$(document).ready(function() {

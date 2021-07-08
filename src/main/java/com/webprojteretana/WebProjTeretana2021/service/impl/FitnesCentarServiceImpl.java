@@ -2,6 +2,7 @@ package com.webprojteretana.WebProjTeretana2021.service.impl;
 
 import com.webprojteretana.WebProjTeretana2021.entity.Clan;
 import com.webprojteretana.WebProjTeretana2021.entity.FitnesCentar;
+import com.webprojteretana.WebProjTeretana2021.entity.Sala;
 import com.webprojteretana.WebProjTeretana2021.entity.Trening;
 import com.webprojteretana.WebProjTeretana2021.repository.ClanRepository;
 import com.webprojteretana.WebProjTeretana2021.repository.FitnesCentarRepository;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class FitnesCentarServiceImpl implements FitnesCentarService {
@@ -46,5 +48,14 @@ public class FitnesCentarServiceImpl implements FitnesCentarService {
     public FitnesCentar findOne(Long id) {
         return fitnesCentarRepository.getOne(id);
 
+    }
+
+    @Override
+    public void  dodajSalu (Long idFC, Sala sala){
+        FitnesCentar fitnesCentar = fitnesCentarRepository.getOne(idFC);
+        Set<Sala> sale=fitnesCentar.getSale();
+        sale.add(sala);
+        fitnesCentar.setSale(sale);
+        FitnesCentar fitnesCentar1=this.fitnesCentarRepository.save(fitnesCentar);
     }
 }

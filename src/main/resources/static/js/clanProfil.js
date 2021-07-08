@@ -4,7 +4,7 @@
 
     $.ajax({
             type: "GET",
-            url: "http://localhost:8083/api/clanovi/" + idKorisnika,  // this.id je button id, a kao button id je postavljen id zaposlenog
+            url: "http://localhost:8085/api/clanovi/" + idKorisnika,  // this.id je button id, a kao button id je postavljen id zaposlenog
             dataType: "json",
             success: function (data) {
                 console.log("SUCCESS : ", data);
