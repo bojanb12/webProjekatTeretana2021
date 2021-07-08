@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8083/api/treneri",
+        url: "http://localhost:8085/api/treneri",
         dataType: "json",
         success: function (response) {
             console.log("SUCCESS:\n", response);

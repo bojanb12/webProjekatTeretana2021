@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8083/api/termini",
+        url: "http://localhost:8085/api/termini",
         dataType: "json",
         success: function (response) {
             console.log("SUCCESS:\n", response);

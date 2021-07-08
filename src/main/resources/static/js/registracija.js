@@ -20,7 +20,7 @@ $(document).on("submit", "form", function(event){
 
     $.ajax({
             type: "POST",
-            url: "http://localhost:8083/api/clanovi/registration",
+            url: "http://localhost:8085/api/clanovi/registration",
             dataType: "json",
             contentType: "application/json",
             data: noviJSON,

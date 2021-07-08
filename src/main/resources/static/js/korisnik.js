@@ -14,7 +14,7 @@ $(document).on("submit", "form", function(event){
     if (uloga == 'Clan') {
         $.ajax({
             type: "POST",
-            url: "http://localhost:8083/api/clanovi/login",
+            url: "http://localhost:8085/api/clanovi/login",
             dataType: "json",
             contentType: "application/json",
             data: myJSON,
@@ -53,7 +53,7 @@ $(document).on("submit", "form", function(event){
     else if (uloga == 'Trener'){
     $.ajax({
                 type: "POST",
-                url: "http://localhost:8083/api/treneri/login",
+                url: "http://localhost:8085/api/treneri/login",
                 dataType: "json",
                 contentType: "application/json",
                 data: myJSON,
@@ -98,7 +98,7 @@ $(document).on("submit", "form", function(event){
     else{
         $.ajax({
                         type: "POST",
-                        url: "http://localhost:8083/api/administratori/login",
+                        url: "http://localhost:8085/api/administratori/login",
                         dataType: "json",
                         contentType: "application/json",
                         data: myJSON,

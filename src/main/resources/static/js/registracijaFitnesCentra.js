@@ -14,7 +14,7 @@ $(document).on("submit", "form", function(event){
 
     $.ajax({
             type: "POST",
-            url: "http://localhost:8083/api/fitnesCentri/registration",
+            url: "http://localhost:8085/api/fitnesCentri/registration",
             dataType: "json",
             contentType: "application/json",
             data: noviJSON,
