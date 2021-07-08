@@ -59,6 +59,7 @@ public class ClanController {
 
     }
 
+    // dobavljanje jednog clana za prikaz profila
     @GetMapping(
             value = "/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE)  // tip odgovora
