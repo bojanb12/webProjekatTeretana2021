@@ -65,7 +65,9 @@ public class FitnesCentarController {
         List<FitnesCentar> fitnesCentarList = this.fitnesCentarService.findAll();
 
 
+
         List<FitnesCentarDTO> fitnesCentarDTOS = new ArrayList<>();
+
 
         for (FitnesCentar fitnesCentar : fitnesCentarList) {
 

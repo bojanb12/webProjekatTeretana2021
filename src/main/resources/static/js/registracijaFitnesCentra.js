@@ -20,7 +20,7 @@ $(document).on("submit", "form", function(event){
             data: noviJSON,
             success: function () {
                  alert("Fitnes centar " + nazivFC + " je uspešno registrovan!");
-                 window.location.href = "pocetnaAdmin.html";
+                 window.location.href = "listaFC.html";
                  },
             error: function (data) {
                  alert("Greška!");
