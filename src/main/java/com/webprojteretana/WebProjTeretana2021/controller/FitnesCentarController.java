@@ -2,11 +2,9 @@ package com.webprojteretana.WebProjTeretana2021.controller;
 
 import com.webprojteretana.WebProjTeretana2021.entity.Clan;
 import com.webprojteretana.WebProjTeretana2021.entity.FitnesCentar;
+import com.webprojteretana.WebProjTeretana2021.entity.Sala;
 import com.webprojteretana.WebProjTeretana2021.entity.Trening;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.ClanDTO;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.FitnesCentarDTO;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.LoginClanDTO;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.TreningDTO;
+import com.webprojteretana.WebProjTeretana2021.entity.dto.*;
 import com.webprojteretana.WebProjTeretana2021.service.ClanService;
 import com.webprojteretana.WebProjTeretana2021.service.FitnesCentarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 @RestController
