@@ -2,6 +2,7 @@ package com.webprojteretana.WebProjTeretana2021.service.impl;
 
 import com.webprojteretana.WebProjTeretana2021.entity.Clan;
 import com.webprojteretana.WebProjTeretana2021.entity.FitnesCentar;
+import com.webprojteretana.WebProjTeretana2021.entity.Trening;
 import com.webprojteretana.WebProjTeretana2021.repository.ClanRepository;
 import com.webprojteretana.WebProjTeretana2021.repository.FitnesCentarRepository;
 import com.webprojteretana.WebProjTeretana2021.service.FitnesCentarService;
@@ -31,7 +32,8 @@ public class FitnesCentarServiceImpl implements FitnesCentarService {
 
     @Override
     public List<FitnesCentar> findAll() {
-        return null;
+        List<FitnesCentar> fitnesCentri = this.fitnesCentarRepository.findAll();
+        return fitnesCentri;
     }
 
     @Override

@@ -21,9 +21,6 @@ public class Sala implements Serializable{
     private String oznaka;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "nalazi",
-            joinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "fitnescentar_id", referencedColumnName = "id"))
     private FitnesCentar salaFC;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
