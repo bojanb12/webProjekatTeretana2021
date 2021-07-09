@@ -2,10 +2,7 @@ package com.webprojteretana.WebProjTeretana2021.controller;
 
 
 import com.webprojteretana.WebProjTeretana2021.entity.*;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.SalaDTO;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.TerminDTO;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.TrenerDTO;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.TreningDTO;
+import com.webprojteretana.WebProjTeretana2021.entity.dto.*;
 import com.webprojteretana.WebProjTeretana2021.service.TerminService;
 import com.webprojteretana.WebProjTeretana2021.service.TrenerService;
 import com.webprojteretana.WebProjTeretana2021.service.TreningService;
@@ -13,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -97,6 +91,24 @@ public class TreningController {
             }
 
         return new ResponseEntity<>(treningDTOS, HttpStatus.OK);
+
+
+    }
+
+
+    // metoda za brisanje termina za odredjeni trening, brise se iz treninga preko servis metode obrisiTermin
+    @PostMapping(
+            value="/obrisiTermin",
+            consumes = MediaType.APPLICATION_JSON_VALUE,     // tip podataka koje metoda može da primi
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public void obrisiTermin(@RequestBody TreningTerminDTO treningTerminDTO) throws Exception{
+
+        Long idTrening=treningTerminDTO.getIdTrening();
+
+        Long idTermin=treningTerminDTO.getIdTermin();
+
+        treningService.obrisiTermin(idTrening,idTermin);
 
 
     }

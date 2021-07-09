@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     var fitnesCentarId = localStorage.getItem('fitnesCentarID');
     var fitnesCentarNaziv = localStorage.getItem('fitnesCentarNaziv');
+    localStorage.setItem('idFC', fitnesCentarId);
 
     //$('#imeFC').append(fitnesCentarNaziv);
 
@@ -36,8 +37,75 @@ $(document).ready(function () {
     });
 });
 
+$(document).on('click', '.btnObrisiSalu', function () {
+
+    var idSala = this.dataset.id;
+
+    var idFC = localStorage.getItem('idFC');
+
+    var myJSON=formToJSON(idFC, idSala);
+
+    $.ajax({
+            type: "POST",
+            url: "http://localhost:8085/api/sale/obrisiSalu",
+            dataType: "json",
+            contentType: "application/json",
+            data:myJSON,
+            success: function (data) {
+                console.log("SUCCESS : ", data);
+                alert("Sala obrisana!");
+                window.location.href = "listaSala.html";
 
 
+            },
+                   error: function (data) {
+                       alert("Greska!");
+                       window.location.href = "listaSala.html";
+                       console.log("ERROR : ", data);
+                   }
+               });
+
+});
+
+function formToJSON(idFC, idSala) {
+             return JSON.stringify(
+                      {
+                        "idFC": idFC,
+                        "idSala": idSala
+                       }
+             );
+       };
+
+
+
+
+
+
+
+
+/*
+$(document).on('click', '.btnObrisiSalu', function () {
+
+    let idSala = this.dataset.id;
+
+    $.ajax({
+            type: "DELETE",
+            url: "http://localhost:8085/api/sale/delete/" + idSala,  // this.id je button id, a kao button id je postavljen id zaposlenog
+            dataType: "json",
+            success: function (data) {
+                window.location.href = "listaSala.html";                             // prikaži taj element
+            },
+            error: function () {
+                alert("Sala obrisana!");
+                console.log("Sala je obrisana.");
+                window.location.href = "listaSala.html";
+            }
+        });
+
+});
+
+
+*/
 
 /*
 $(document).ready(function () {

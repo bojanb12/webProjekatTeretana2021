@@ -1,11 +1,9 @@
 package com.webprojteretana.WebProjTeretana2021.service.impl;
 
-import com.webprojteretana.WebProjTeretana2021.entity.Clan;
-import com.webprojteretana.WebProjTeretana2021.entity.FitnesCentar;
-import com.webprojteretana.WebProjTeretana2021.entity.Sala;
-import com.webprojteretana.WebProjTeretana2021.entity.Trening;
+import com.webprojteretana.WebProjTeretana2021.entity.*;
 import com.webprojteretana.WebProjTeretana2021.repository.ClanRepository;
 import com.webprojteretana.WebProjTeretana2021.repository.FitnesCentarRepository;
+import com.webprojteretana.WebProjTeretana2021.repository.SalaRepository;
 import com.webprojteretana.WebProjTeretana2021.service.FitnesCentarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,9 +16,12 @@ public class FitnesCentarServiceImpl implements FitnesCentarService {
 
     private final FitnesCentarRepository fitnesCentarRepository;
 
+    private final SalaRepository salaRepository;
+
     @Autowired
-    public FitnesCentarServiceImpl(FitnesCentarRepository fitnesCentarRepository) {
+    public FitnesCentarServiceImpl(FitnesCentarRepository fitnesCentarRepository, SalaRepository salaRepository) {
         this.fitnesCentarRepository = fitnesCentarRepository;
+        this.salaRepository = salaRepository;
     }
 
     @Override
@@ -57,5 +58,28 @@ public class FitnesCentarServiceImpl implements FitnesCentarService {
         sale.add(sala);
         fitnesCentar.setSale(sale);
         FitnesCentar fitnesCentar1=this.fitnesCentarRepository.save(fitnesCentar);
+    }
+
+    @Override
+    public void delete(Long id) {
+        FitnesCentar fitnesCentar = fitnesCentarRepository.getOne(id);
+        fitnesCentarRepository.delete(fitnesCentar);
+    }
+
+
+    // metoda za brisanje sale iz fitnes centra
+    @Override
+    public void obrisiSalu(Long idFitnesCentra,Long idSale){
+
+        FitnesCentar fitnesCentar = fitnesCentarRepository.getOne(idFitnesCentra);
+        Sala sala = salaRepository.getOne(idSale);
+        Set<Sala> sale= fitnesCentar.getSale();
+
+        sale.remove(sala);
+        salaRepository.save(sala);
+
+        fitnesCentar.setSale(sale);
+        fitnesCentarRepository.save(fitnesCentar);
+
     }
 }

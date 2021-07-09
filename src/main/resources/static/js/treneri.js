@@ -22,6 +22,9 @@ $(document).ready(function () {
                 //dugme za aktivaciju naloga trenera (administrator mora da potvrdi registraciju)
                 let btn = "<button class='btnAktiviraj' data-id=" + trener.id + ">Aktiviraj nalog</button>";
                 row += "<td>" + btn + "</td>";
+
+                let btn2 = "<button class='btnObrisiTrenera' data-id=" + trener.id + ">Obrisi nalog</button>";
+                row += "<td>" + btn2 + "</td>";
                 row += "</tr>";
 
                 $('#treneri').append(row);
@@ -53,4 +56,25 @@ $(document).on('click', '.btnAktiviraj', function () {
             window.location.href = "treneri.html";
         }
     });
+});
+
+$(document).on('click', '.btnObrisiTrenera', function () {
+
+    let idTrener = this.dataset.id;
+
+    $.ajax({
+            type: "DELETE",
+            url: "http://localhost:8085/api/treneri/delete/" + idTrener,  // this.id je button id, a kao button id je postavljen id zaposlenog
+            dataType: "json",
+            success: function (data) {
+                window.location.href = "treneri.html";
+                alert("Nalog obrisan!");
+            },
+            error: function () {
+                alert("Nalog obrisan!");
+                console.log("Nalog trenera deaktiviran.");
+                window.location.href = "treneri.html";
+            }
+        });
+
 });

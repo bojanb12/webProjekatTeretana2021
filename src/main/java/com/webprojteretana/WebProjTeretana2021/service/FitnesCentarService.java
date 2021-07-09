@@ -20,6 +20,10 @@ public interface FitnesCentarService {
 
     void dodajSalu(Long idFC, Sala sala);
 
+    void delete(Long id);
+
+    void obrisiSalu(Long idFC, Long idSale);
+
 
 
 }

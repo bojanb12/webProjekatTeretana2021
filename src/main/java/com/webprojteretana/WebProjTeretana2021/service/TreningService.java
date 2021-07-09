@@ -19,4 +19,6 @@ public interface TreningService {
 
     void dodajTermin(Long idTrening, Termin termin);
 
+    void obrisiTermin(Long idTrening, Long idTermin);
+
 }

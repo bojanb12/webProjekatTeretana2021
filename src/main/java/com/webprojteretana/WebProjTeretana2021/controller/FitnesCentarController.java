@@ -7,6 +7,7 @@ import com.webprojteretana.WebProjTeretana2021.entity.Trening;
 import com.webprojteretana.WebProjTeretana2021.entity.dto.*;
 import com.webprojteretana.WebProjTeretana2021.service.ClanService;
 import com.webprojteretana.WebProjTeretana2021.service.FitnesCentarService;
+import com.webprojteretana.WebProjTeretana2021.service.SalaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -26,7 +27,13 @@ public class FitnesCentarController {
     private FitnesCentarService fitnesCentarService;
 
     @Autowired
-    public FitnesCentarController(FitnesCentarService fitnesCentarService) {this.fitnesCentarService = fitnesCentarService;}
+    private SalaService salaService;
+
+    @Autowired
+    public FitnesCentarController(FitnesCentarService fitnesCentarService, SalaService salaService) {
+        this.fitnesCentarService = fitnesCentarService;
+        this.salaService = salaService;
+    }
 
 
     //registracija
@@ -78,6 +85,32 @@ public class FitnesCentarController {
         return new ResponseEntity<>(fitnesCentarDTOS, HttpStatus.OK);
     }
 
+    // delete metoda
+    @DeleteMapping(
+            value = "/delete/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE)  // tip odgovora
+    public ResponseEntity<FitnesCentarDTO> deleteFitnesCentar(@PathVariable(name = "id") Long id) {
+
+        this.fitnesCentarService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+    // metoda za brisanje sale iz fitnes centra
+    @PostMapping(
+            value="/obrisiSalu",
+            consumes = MediaType.APPLICATION_JSON_VALUE,     // tip podataka koje metoda može da primi
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public void obrisiSalu(@RequestBody FitnesCentarSalaDTO fitnesCentarSalaDTO) throws Exception{
+
+        Long idFitnesCentra = fitnesCentarSalaDTO.getIdFitnesCentar();
+
+        Long idSale = fitnesCentarSalaDTO.getIdSala();
+
+        fitnesCentarService.obrisiSalu(idFitnesCentra, idSale);
+
+    }
 
 
     /*

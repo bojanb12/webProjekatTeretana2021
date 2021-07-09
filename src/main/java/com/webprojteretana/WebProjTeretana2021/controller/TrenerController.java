@@ -2,10 +2,7 @@ package com.webprojteretana.WebProjTeretana2021.controller;
 
 import com.webprojteretana.WebProjTeretana2021.entity.Clan;
 import com.webprojteretana.WebProjTeretana2021.entity.Trener;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.ClanDTO;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.LoginClanDTO;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.LoginTrenerDTO;
-import com.webprojteretana.WebProjTeretana2021.entity.dto.TrenerDTO;
+import com.webprojteretana.WebProjTeretana2021.entity.dto.*;
 import com.webprojteretana.WebProjTeretana2021.service.ClanService;
 import com.webprojteretana.WebProjTeretana2021.service.TrenerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -121,6 +118,15 @@ public class TrenerController {
     public ResponseEntity<TrenerDTO> promeniAktivan(@PathVariable(name = "id") Long id) {
 
         this.trenerService.aktivirajNalog(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping(
+            value = "/delete/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE)  // tip odgovora
+    public ResponseEntity<TrenerDTO> deleteTrener(@PathVariable(name = "id") Long id) {
+
+        this.trenerService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

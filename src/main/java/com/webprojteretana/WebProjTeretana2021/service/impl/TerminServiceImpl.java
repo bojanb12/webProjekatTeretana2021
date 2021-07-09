@@ -3,6 +3,7 @@ package com.webprojteretana.WebProjTeretana2021.service.impl;
 
 import com.webprojteretana.WebProjTeretana2021.entity.FitnesCentar;
 import com.webprojteretana.WebProjTeretana2021.entity.Termin;
+import com.webprojteretana.WebProjTeretana2021.entity.Trener;
 import com.webprojteretana.WebProjTeretana2021.entity.Trening;
 import com.webprojteretana.WebProjTeretana2021.repository.FitnesCentarRepository;
 import com.webprojteretana.WebProjTeretana2021.repository.TerminRepository;
@@ -47,5 +48,11 @@ public class TerminServiceImpl implements TerminService {
     public Termin findOne(Long id) {
         return terminRepository.getOne(id);
 
+    }
+
+    @Override
+    public void delete(Long id) {
+        Termin termin = terminRepository.getOne(id);
+        terminRepository.delete(termin);
     }
 }

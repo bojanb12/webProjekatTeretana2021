@@ -22,8 +22,8 @@ public class Termin implements Serializable{
     @Column(nullable = false)
     private Integer slobodnihMesta;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Sala salaTermin;
+    //@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    //private Sala salaTermin;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Trening treningTermin;
@@ -33,31 +33,6 @@ public class Termin implements Serializable{
     public Termin() {
     }
 
-    public Termin(Long id, String vreme, String dan, String cena, Sala salaTermin, Trening treningTermin, Integer slobodnihMesta) {
-        this.id = id;
-        this.vreme = vreme;
-        this.dan = dan;
-        this.cena = cena;
-        this.salaTermin = salaTermin;
-        this.treningTermin = treningTermin;
-        this.slobodnihMesta = slobodnihMesta;
-    }
-
-    public Termin(String vreme, String dan, String cena, Sala salaTermin, Trening treningTermin, Integer slobodnihMesta) {
-        this.vreme = vreme;
-        this.dan = dan;
-        this.cena = cena;
-        this.salaTermin = salaTermin;
-        this.treningTermin = treningTermin;
-        this.slobodnihMesta = slobodnihMesta;
-    }
-
-    public Termin(String vreme, String dan, String cena, Sala salaTermin) {
-        this.vreme = vreme;
-        this.dan = dan;
-        this.cena = cena;
-        this.salaTermin = salaTermin;
-    }
 
     public Termin(Long id, String vreme, String dan, String cena) {
         this.id = id;
@@ -66,24 +41,16 @@ public class Termin implements Serializable{
         this.cena = cena;
     }
 
-    public Termin(String vreme, String dan, String cena, Sala salaTermin, Trening treningTermin) {
-        this.vreme = vreme;
-        this.dan = dan;
-        this.cena = cena;
-        this.salaTermin = salaTermin;
-        this.treningTermin = treningTermin;
-    }
-
-    public Termin(Long id, String vreme, String dan, String cena, Sala salaTermin, Trening treningTermin) {
-        this.id = id;
-        this.vreme = vreme;
-        this.dan = dan;
-        this.cena = cena;
-        this.salaTermin = salaTermin;
-        this.treningTermin = treningTermin;
-    }
 
     public Termin(String vreme, String dan, String cena, Integer slobodnihMesta) {
+        this.vreme = vreme;
+        this.dan = dan;
+        this.cena = cena;
+        this.slobodnihMesta = slobodnihMesta;
+    }
+
+    public Termin(Long id, String vreme, String dan, String cena, Integer slobodnihMesta) {
+        this.id = id;
         this.vreme = vreme;
         this.dan = dan;
         this.cena = cena;
@@ -122,13 +89,13 @@ public class Termin implements Serializable{
         this.cena = cena;
     }
 
-    public Sala getSalaTermin() {
-        return salaTermin;
-    }
+    //public Sala getSalaTermin() {
+        //return salaTermin;
+    //}
 
-    public void setSalaTermin(Sala salaTermin) {
-        this.salaTermin = salaTermin;
-    }
+    //public void setSalaTermin(Sala salaTermin) {
+        //this.salaTermin = salaTermin;
+    //}
 
     public Trening getTreningTermin() {
         return treningTermin;
