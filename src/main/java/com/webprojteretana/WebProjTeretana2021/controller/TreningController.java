@@ -118,12 +118,37 @@ public class TreningController {
 
     }
 
+    // metoda za prikaz prijavljenih treninga (povezana tabela privavio_trening)
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/prijavljeni/{id}")
     public ResponseEntity<Set<TreningDTO>> prikaziPrijavljeneTreninge(@PathVariable(name = "id") Long id) throws Exception {
 
         Clan clan = clanService.findOne(id);
 
         Set<Trening> treninzi = clan.getPrijavljeniTreninzi();
+
+        Set<TreningDTO> treningDTOS= new HashSet<>();
+
+        if (treninzi.isEmpty()){
+            throw new Exception("Nema treninga za odabranog trenera.");
+        }else
+            for(Trening trening: treninzi){
+                TreningDTO treningDTO= new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(), trening.getTipTreninga(), trening.getTrajanjeTreninga());
+                treningDTOS.add(treningDTO);
+            }
+
+        return new ResponseEntity<>(treningDTOS, HttpStatus.OK);
+
+
+    }
+
+
+    // metoda za prikazivanje odradjenih treninga (tabela odradio_trening)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/odradjeni/{id}")
+    public ResponseEntity<Set<TreningDTO>> prikaziOdradjeneTreninge(@PathVariable(name = "id") Long id) throws Exception {
+
+        Clan clan = clanService.findOne(id);
+
+        Set<Trening> treninzi = clan.getOdradjeniTreninzi();
 
         Set<TreningDTO> treningDTOS= new HashSet<>();
 

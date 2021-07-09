@@ -66,6 +66,10 @@ INSERT INTO IMA_TERMINE (trening_id, termin_id) VALUES (3, 5);
 
 INSERT INTO PRIJAVIO_TRENING (clan_id, trening_id) VALUES (1, 1);
 
+INSERT INTO ODRADIO_TRENING (clan_id, trening_id) VALUES (1, 2);
+INSERT INTO ODRADIO_TRENING (clan_id, trening_id) VALUES (1, 3);
+INSERT INTO ODRADIO_TRENING (clan_id, trening_id) VALUES (1, 4);
+
 
 
 
