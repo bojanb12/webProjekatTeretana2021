@@ -1,7 +1,6 @@
 package com.webprojteretana.WebProjTeretana2021.service.impl;
 
-import com.webprojteretana.WebProjTeretana2021.entity.Trener;
-import com.webprojteretana.WebProjTeretana2021.entity.Trening;
+import com.webprojteretana.WebProjTeretana2021.entity.*;
 import com.webprojteretana.WebProjTeretana2021.repository.TrenerRepository;
 import com.webprojteretana.WebProjTeretana2021.repository.TreningRepository;
 import com.webprojteretana.WebProjTeretana2021.service.TreningService;
@@ -9,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class TreningServiceImpl implements TreningService {
@@ -47,5 +47,14 @@ public class TreningServiceImpl implements TreningService {
     @Override
     public Trening update(Trening trening) throws Exception {
         return null;
+    }
+
+    @Override
+    public void  dodajTermin (Long idTrening, Termin termin){
+        Trening trening = treningRepository.getOne(idTrening);
+        Set<Termin> termini=trening.getTerminiTreninga();
+        termini.add(termin);
+        trening.setTerminiTreninga(termini);
+        Trening trening1 = this.treningRepository.save(trening);
     }
 }

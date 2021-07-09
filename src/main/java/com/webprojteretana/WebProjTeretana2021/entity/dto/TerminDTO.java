@@ -66,6 +66,21 @@ public class TerminDTO {
         this.slobodnihMesta = slobodnihMesta;
     }
 
+    public TerminDTO(Long id, String vreme, String dan, String cena, Integer slobodnihMesta) {
+        this.id = id;
+        this.vreme = vreme;
+        this.dan = dan;
+        this.cena = cena;
+        this.slobodnihMesta = slobodnihMesta;
+    }
+
+    public TerminDTO(String vreme, String dan, String cena, Integer slobodnihMesta) {
+        this.vreme = vreme;
+        this.dan = dan;
+        this.cena = cena;
+        this.slobodnihMesta = slobodnihMesta;
+    }
+
     public Long getId() {
         return id;
     }

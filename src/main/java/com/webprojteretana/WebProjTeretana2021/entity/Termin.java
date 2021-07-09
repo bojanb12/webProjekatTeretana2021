@@ -83,6 +83,13 @@ public class Termin implements Serializable{
         this.treningTermin = treningTermin;
     }
 
+    public Termin(String vreme, String dan, String cena, Integer slobodnihMesta) {
+        this.vreme = vreme;
+        this.dan = dan;
+        this.cena = cena;
+        this.slobodnihMesta = slobodnihMesta;
+    }
+
     public Long getId() {
         return id;
     }

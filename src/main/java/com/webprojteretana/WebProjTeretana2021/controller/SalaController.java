@@ -28,7 +28,10 @@ public class SalaController {
     private FitnesCentarService fitnesCentarService;
 
     @Autowired
-    public SalaController(SalaService salaService) {this.salaService = salaService;}
+    public SalaController(SalaService salaService, FitnesCentarService fitnesCentarService) {
+        this.salaService = salaService;
+        this.fitnesCentarService = fitnesCentarService;
+    }
 
     //metoda za dodavanje sale za odredjeni FC
     @PostMapping(value="/registration/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
