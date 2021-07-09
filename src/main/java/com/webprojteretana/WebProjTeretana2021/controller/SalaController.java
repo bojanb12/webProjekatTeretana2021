@@ -30,7 +30,7 @@ public class SalaController {
     @Autowired
     public SalaController(SalaService salaService) {this.salaService = salaService;}
 
-    //metoda za dodavanje sale
+    //metoda za dodavanje sale za odredjeni FC
     @PostMapping(value="/registration/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<SalaDTO> createSala(@RequestBody SalaDTO salaDTO, @PathVariable(name="id") Long id) throws Exception {
 
@@ -47,6 +47,7 @@ public class SalaController {
         return new ResponseEntity<>(newSalaDTO, HttpStatus.OK);
     }
 
+    // metoda za dobavljanje sala za odabrni fitnes centar
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/{id}")
     public ResponseEntity<Set<SalaDTO>> prikaziSale(@PathVariable(name = "id") Long id) throws Exception {
 
