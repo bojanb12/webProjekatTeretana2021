@@ -16,7 +16,7 @@ public class TrenerDTO {
     private String email;
     private String adresa;
     private String datumRodjenja;
-    private Boolean aktivan = true;
+    private Boolean aktivan;
     private String uloga;
 
     public TrenerDTO() {
