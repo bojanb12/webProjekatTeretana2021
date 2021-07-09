@@ -48,7 +48,7 @@ $(document).on('click', '.btnObrisiTermin', function () {
 
     $.ajax({
             type: "POST",
-            url: "http://localhost:8085/api/termini/obrisiTermin",
+            url: "http://localhost:8085/api/treninzi/obrisiTermin",
             dataType: "json",
             contentType: "application/json",
             data:myJSON,
