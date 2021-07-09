@@ -45,8 +45,8 @@ public class Trener implements Serializable{
     @Column(nullable = false)
     private String uloga;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "drzi_trening",
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "drzi_treninge",
             joinColumns = @JoinColumn(name = "trener_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
     private Set<Trening> treninziKojeDrzi = new HashSet<>();
@@ -174,5 +174,21 @@ public class Trener implements Serializable{
 
     public void setUloga(String uloga) {
         this.uloga = uloga;
+    }
+
+    public Set<Trening> getTreninziKojeDrzi() {
+        return treninziKojeDrzi;
+    }
+
+    public void setTreninziKojeDrzi(Set<Trening> treninziKojeDrzi) {
+        this.treninziKojeDrzi = treninziKojeDrzi;
+    }
+
+    public FitnesCentar getFitnesCentarTrenera() {
+        return fitnesCentarTrenera;
+    }
+
+    public void setFitnesCentarTrenera(FitnesCentar fitnesCentarTrenera) {
+        this.fitnesCentarTrenera = fitnesCentarTrenera;
     }
 }

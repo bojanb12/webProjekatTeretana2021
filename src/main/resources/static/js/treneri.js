@@ -41,7 +41,7 @@ $(document).on('click', '.btnAktiviraj', function () {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8083/api/treneri/aktiviraj/" + trenerId,
+        url: "http://localhost:8085/api/treneri/aktiviraj/" + trenerId,
         dataType: "json",
         success: function (data) {
             alert("Registracija potvrđena.");

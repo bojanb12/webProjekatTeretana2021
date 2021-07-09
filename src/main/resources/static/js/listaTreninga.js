@@ -20,8 +20,8 @@ $(document).ready(function () {
 
 
                 //dugme za aktivaciju naloga trenera (administrator mora da potvrdi registraciju)
-                //let btn = "<button class='btnAktiviraj' data-id=" + trener.id + ">Aktiviraj nalog</button>";
-                //row += "<td>" + btn + "</td>";
+                let btn = "<button class='btnTermini' data-id=" + trening.id + ">Prikazi termine</button>";
+                row += "<td>" + btn + "</td>";
                 row += "</tr>";
 
                 $('#treninzi').append(row);
@@ -32,6 +32,16 @@ $(document).ready(function () {
              alert("Greška!");
         }
     });
+});
+
+$(document).on('click', '.btnTermini', function () {
+
+    let treningId = this.dataset.id;
+    let treningNaziv = this.dataset.naziv;
+    localStorage.setItem('treningId', treningId);
+    localStorage.setItem('treningNaziv', treningNaziv);
+    window.location.href = "listaTermina.html";
+
 });
 
  /*$(document).ready(function() {

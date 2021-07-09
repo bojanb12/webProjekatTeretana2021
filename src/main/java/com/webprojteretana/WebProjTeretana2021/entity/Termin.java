@@ -25,10 +25,7 @@ public class Termin implements Serializable{
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Sala salaTermin;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "treningtermin",
-            joinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"))
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Trening treningTermin;
 
 
@@ -84,6 +81,13 @@ public class Termin implements Serializable{
         this.cena = cena;
         this.salaTermin = salaTermin;
         this.treningTermin = treningTermin;
+    }
+
+    public Termin(String vreme, String dan, String cena, Integer slobodnihMesta) {
+        this.vreme = vreme;
+        this.dan = dan;
+        this.cena = cena;
+        this.slobodnihMesta = slobodnihMesta;
     }
 
     public Long getId() {

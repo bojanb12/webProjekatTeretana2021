@@ -3,12 +3,15 @@ $(document).ready(function () {
     var fitnesCentarId = localStorage.getItem('fitnesCentarID');
     var fitnesCentarNaziv = localStorage.getItem('fitnesCentarNaziv');
 
+    //$('#imeFC').append(fitnesCentarNaziv);
+
     $.ajax({
         type: "GET",
         url: "http://localhost:8085/api/sale/" + fitnesCentarId,
         dataType: "json",
         success: function (data) {
             console.log("SUCCESS:", data);
+
 
             for (i = 0; i < data.length; i++) {                     // prolazimo kroz listu svih zaposlenih
 
