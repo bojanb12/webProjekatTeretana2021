@@ -48,7 +48,7 @@ public class TreningController {
 
         for (Trening trening : treningList) {
 
-            TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(), trening.getTipTreninga(), trening.getTrajanjeTreninga(), trening.getTerminTreninga());
+            TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(), trening.getTipTreninga(), trening.getTrajanjeTreninga());
             treningDTOS.add(treningDTO);
         }
 
@@ -65,7 +65,7 @@ public class TreningController {
         Trening trening = this.treningService.findOne(id);
 
 
-        TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(), trening.getTipTreninga(), trening.getTrajanjeTreninga(), trening.getTerminTreninga().getVreme());
+        TreningDTO treningDTO = new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(), trening.getTipTreninga(), trening.getTrajanjeTreninga());
 
         return new ResponseEntity<>(treningDTO, HttpStatus.OK);
     }

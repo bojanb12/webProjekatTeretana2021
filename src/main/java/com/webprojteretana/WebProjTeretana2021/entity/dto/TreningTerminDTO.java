@@ -11,6 +11,9 @@ public class TreningTerminDTO {
         this.idTermin = idTermin;
     }
 
+    public TreningTerminDTO() {
+    }
+
     public Long getIdTrening() {
         return idTrening;
     }

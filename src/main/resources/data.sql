@@ -36,7 +36,11 @@ INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Rekr
 --INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Heavy Lifting 2', 'Trčanje i skakanje', 'Weight Lifting', '45min');
 --INSERT INTO TRENING (NAZIV, OPIS, TIP_TRENINGA, TRAJANJE_TRENINGA) VALUES ('Rekreacija', 'Trčanje i skakanje', 'Kondicioni trening', '120min');
 
-INSERT INTO TERMIN (VREME, DAN, CENA, SLOBODNIH_MESTA) VALUES ('17:30', 'Utorak', '1500', '10');
+INSERT INTO TERMIN (VREME, DAN, CENA, SLOBODNIH_MESTA, TRENING_TERMIN_ID) VALUES ('17:30', 'Utorak', '1500', '10', 1);
+INSERT INTO TERMIN (VREME, DAN, CENA, SLOBODNIH_MESTA, TRENING_TERMIN_ID) VALUES ('10:30', 'Četvrtak', '1200', '20', 1);
+INSERT INTO TERMIN (VREME, DAN, CENA, SLOBODNIH_MESTA, TRENING_TERMIN_ID) VALUES ('12:45', 'Petak', '1600', '5', 2);
+
+INSERT INTO IMA_TERMINE (trening_id, termin_id) VALUES (1, 2);
 
 
 
@@ -51,6 +55,6 @@ INSERT INTO SALA (KAPACITET, OZNAKA, SALAFC_ID) VALUES (25, 'Sala A4', 1);
 INSERT INTO IMA_SALE (fitnes_centar_id, sala_id) VALUES (1, 2);
 INSERT INTO IMA_SALE (sala_id, fitnes_centar_id) VALUES (1, 1);
 
-INSERT INTO TRENINGTERMIN (TERMIN_ID, TRENING_ID) VALUES (1, 1);
+--INSERT INTO TRENINGTERMIN (TERMIN_ID, TRENING_ID) VALUES (1, 1);
 
 --INSERT INTO KORISNIK (korisnicko_ime, LOZINKA, IME, PREZIME, ULOGA, broj_tel, EMAIL, ADRESA, datum_rodjenja, AKTIVAN) VALUES ('FTN Gym', 'Neke Ulice 22', '+3816455872', 'ftn.gym@gmail.com', 'ftn.gym@gmail.com', 'ftn.gym@gmail.com', 'ftn.gym@gmail.com', 'ftn.gym@gmail.com', 'ftn.gym@gmail.com', TRUE);

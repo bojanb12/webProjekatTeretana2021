@@ -47,8 +47,11 @@ public class Trening implements Serializable{
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Trener trenerTreninga;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Termin terminTreninga;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "ima_termine",
+            joinColumns = @JoinColumn(name = "trening_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
+    private Set<Termin> terminiTreninga = new HashSet<>();
 
     public Trening() {
     }
@@ -143,11 +146,28 @@ public class Trening implements Serializable{
         this.trenerTreninga = trenerTreninga;
     }
 
-    public Termin getTerminTreninga() {
-        return terminTreninga;
+    public Set<Termin> getTerminiTreninga() {
+        return terminiTreninga;
     }
 
-    public void setTerminTreninga(Termin terminTreninga) {
-        this.terminTreninga = terminTreninga;
+    public void setTerminiTreninga(Set<Termin> terminiTreninga) {
+        this.terminiTreninga = terminiTreninga;
+    }
+
+    public Trening(Long id, String naziv, String opis, String tipTreninga, String trajanjeTreninga, Set<Termin> terminiTreninga) {
+        this.id = id;
+        this.naziv = naziv;
+        this.opis = opis;
+        this.tipTreninga = tipTreninga;
+        this.trajanjeTreninga = trajanjeTreninga;
+        this.terminiTreninga = terminiTreninga;
+    }
+
+    public Trening(String naziv, String opis, String tipTreninga, String trajanjeTreninga, Set<Termin> terminiTreninga) {
+        this.naziv = naziv;
+        this.opis = opis;
+        this.tipTreninga = tipTreninga;
+        this.trajanjeTreninga = trajanjeTreninga;
+        this.terminiTreninga = terminiTreninga;
     }
 }
