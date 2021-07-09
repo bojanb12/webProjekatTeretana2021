@@ -3,6 +3,7 @@ package com.webprojteretana.WebProjTeretana2021.controller;
 
 import com.webprojteretana.WebProjTeretana2021.entity.*;
 import com.webprojteretana.WebProjTeretana2021.entity.dto.*;
+import com.webprojteretana.WebProjTeretana2021.service.ClanService;
 import com.webprojteretana.WebProjTeretana2021.service.TerminService;
 import com.webprojteretana.WebProjTeretana2021.service.TrenerService;
 import com.webprojteretana.WebProjTeretana2021.service.TreningService;
@@ -31,10 +32,14 @@ public class TreningController {
     private TrenerService trenerService;
 
     @Autowired
-    public TreningController(TreningService treningService, TerminService terminService, TrenerService trenerService) {
+    private ClanService clanService;
+
+    @Autowired
+    public TreningController(TreningService treningService, TerminService terminService, TrenerService trenerService, ClanService clanService) {
         this.treningService = treningService;
         this.terminService = terminService;
         this.trenerService = trenerService;
+        this.clanService = clanService;
     }
 
     //metoda za dobavljanje svih treninga
@@ -109,6 +114,28 @@ public class TreningController {
         Long idTermin=treningTerminDTO.getIdTermin();
 
         treningService.obrisiTermin(idTrening,idTermin);
+
+
+    }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/prijavljeni/{id}")
+    public ResponseEntity<Set<TreningDTO>> prikaziPrijavljeneTreninge(@PathVariable(name = "id") Long id) throws Exception {
+
+        Clan clan = clanService.findOne(id);
+
+        Set<Trening> treninzi = clan.getPrijavljeniTreninzi();
+
+        Set<TreningDTO> treningDTOS= new HashSet<>();
+
+        if (treninzi.isEmpty()){
+            throw new Exception("Nema treninga za odabranog trenera.");
+        }else
+            for(Trening trening: treninzi){
+                TreningDTO treningDTO= new TreningDTO(trening.getId(), trening.getNaziv(), trening.getOpis(), trening.getTipTreninga(), trening.getTrajanjeTreninga());
+                treningDTOS.add(treningDTO);
+            }
+
+        return new ResponseEntity<>(treningDTOS, HttpStatus.OK);
 
 
     }

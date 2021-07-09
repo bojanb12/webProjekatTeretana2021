@@ -184,4 +184,28 @@ public class Clan implements Serializable {
     public void setUloga(String uloga) {
         this.uloga = uloga;
     }
+
+    public Set<Trening> getOdradjeniTreninzi() {
+        return odradjeniTreninzi;
+    }
+
+    public void setOdradjeniTreninzi(Set<Trening> odradjeniTreninzi) {
+        this.odradjeniTreninzi = odradjeniTreninzi;
+    }
+
+    public Set<Trening> getPrijavljeniTreninzi() {
+        return prijavljeniTreninzi;
+    }
+
+    public void setPrijavljeniTreninzi(Set<Trening> prijavljeniTreninzi) {
+        this.prijavljeniTreninzi = prijavljeniTreninzi;
+    }
+
+    public Set<Ocena> getOceneOdrTreninga() {
+        return oceneOdrTreninga;
+    }
+
+    public void setOceneOdrTreninga(Set<Ocena> oceneOdrTreninga) {
+        this.oceneOdrTreninga = oceneOdrTreninga;
+    }
 }
