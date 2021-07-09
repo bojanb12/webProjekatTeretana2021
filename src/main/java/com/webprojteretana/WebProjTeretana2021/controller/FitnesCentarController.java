@@ -7,6 +7,7 @@ import com.webprojteretana.WebProjTeretana2021.entity.Trening;
 import com.webprojteretana.WebProjTeretana2021.entity.dto.*;
 import com.webprojteretana.WebProjTeretana2021.service.ClanService;
 import com.webprojteretana.WebProjTeretana2021.service.FitnesCentarService;
+import com.webprojteretana.WebProjTeretana2021.service.SalaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -26,7 +27,13 @@ public class FitnesCentarController {
     private FitnesCentarService fitnesCentarService;
 
     @Autowired
-    public FitnesCentarController(FitnesCentarService fitnesCentarService) {this.fitnesCentarService = fitnesCentarService;}
+    private SalaService salaService;
+
+    @Autowired
+    public FitnesCentarController(FitnesCentarService fitnesCentarService, SalaService salaService) {
+        this.fitnesCentarService = fitnesCentarService;
+        this.salaService = salaService;
+    }
 
 
     //registracija
@@ -102,7 +109,6 @@ public class FitnesCentarController {
         Long idSale = fitnesCentarSalaDTO.getIdSala();
 
         fitnesCentarService.obrisiSalu(idFitnesCentra, idSale);
-
 
     }
 

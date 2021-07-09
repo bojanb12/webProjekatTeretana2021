@@ -45,9 +45,11 @@ $(document).ready(function () {
 $(document).on('click', '.btnSale', function () {
 
     let fitnesCentarId = this.dataset.id;
+    localStorage.setItem('fitnesCentarID', fitnesCentarId);
+
     let fitnesCentarNaziv = this.dataset.nazivFC;
     localStorage.setItem('fitnesCentarNaziv', fitnesCentarNaziv);
-    localStorage.setItem('fitnesCentarID', fitnesCentarId);
+
     window.location.href = "listaSala.html";
 
 });

@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     var fitnesCentarId = localStorage.getItem('fitnesCentarID');
     var fitnesCentarNaziv = localStorage.getItem('fitnesCentarNaziv');
+    localStorage.setItem('idFC', fitnesCentarId);
 
     //$('#imeFC').append(fitnesCentarNaziv);
 
@@ -38,15 +39,15 @@ $(document).ready(function () {
 
 $(document).on('click', '.btnObrisiSalu', function () {
 
-    let idSale = this.dataset.id;
+    var idSala = this.dataset.id;
 
-    var idFitnesCentra = localStorage.getItem('fitnesCentarID');
+    var idFC = localStorage.getItem('idFC');
 
-    var myJSON=formToJSON(idFitnesCentra, idSale);
+    var myJSON=formToJSON(idFC, idSala);
 
     $.ajax({
             type: "POST",
-            url: "http://localhost:8085/api/fitnesCentri/obrisiSalu",
+            url: "http://localhost:8085/api/sale/obrisiSalu",
             dataType: "json",
             contentType: "application/json",
             data:myJSON,
@@ -66,11 +67,11 @@ $(document).on('click', '.btnObrisiSalu', function () {
 
 });
 
-function formToJSON(idFitnesCentra, idSale) {
+function formToJSON(idFC, idSala) {
              return JSON.stringify(
                       {
-                        "idFitnesCentra": idFitnesCentra,
-                        "idSale": idSale
+                        "idFC": idFC,
+                        "idSala": idSala
                        }
              );
        };

@@ -69,9 +69,9 @@ public class FitnesCentarServiceImpl implements FitnesCentarService {
 
     // metoda za brisanje sale iz fitnes centra
     @Override
-    public void obrisiSalu(Long idFC,Long idSale){
+    public void obrisiSalu(Long idFitnesCentra,Long idSale){
 
-        FitnesCentar fitnesCentar = fitnesCentarRepository.getOne(idFC);
+        FitnesCentar fitnesCentar = fitnesCentarRepository.getOne(idFitnesCentra);
         Sala sala = salaRepository.getOne(idSale);
         Set<Sala> sale= fitnesCentar.getSale();
 

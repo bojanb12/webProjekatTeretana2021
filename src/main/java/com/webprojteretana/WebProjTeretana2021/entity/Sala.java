@@ -23,22 +23,22 @@ public class Sala implements Serializable{
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private FitnesCentar salaFC;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "uSali",
-            joinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
-    private Set<Termin> terminiSala = new HashSet<>();
+    //@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    //@JoinTable(name = "uSali",
+            //joinColumns = @JoinColumn(name = "sala_id", referencedColumnName = "id"),
+            //inverseJoinColumns = @JoinColumn(name = "termin_id", referencedColumnName = "id"))
+    //private Set<Termin> terminiSala = new HashSet<>();
 
     public Sala() {
     }
 
-    public Sala(Long id, Long kapacitet, String oznaka, FitnesCentar salaFC, Set<Termin> terminiSala) {
-        this.id = id;
-        this.kapacitet = kapacitet;
-        this.oznaka = oznaka;
-        this.salaFC = salaFC;
-        this.terminiSala = terminiSala;
-    }
+    //public Sala(Long id, Long kapacitet, String oznaka, FitnesCentar salaFC, Set<Termin> terminiSala) {
+        //this.id = id;
+        //this.kapacitet = kapacitet;
+        //this.oznaka = oznaka;
+        //this.salaFC = salaFC;
+        //this.terminiSala = terminiSala;
+    //}
 
     public Sala(Long id, Long kapacitet, String oznaka, FitnesCentar salaFC) {
         this.id = id;
@@ -82,9 +82,9 @@ public class Sala implements Serializable{
         return salaFC;
     }
 
-    public Set<Termin> getTerminiSala() {
-        return terminiSala;
-    }
+    //public Set<Termin> getTerminiSala() {
+       // return terminiSala;
+    //}
 
     public void setId(Long id) {
         this.id = id;
@@ -102,8 +102,8 @@ public class Sala implements Serializable{
         this.salaFC = salaFC;
     }
 
-    public void setTerminiSala(Set<Termin> terminiSala) {
-        this.terminiSala = terminiSala;
-    }
+    //public void setTerminiSala(Set<Termin> terminiSala) {
+        //this.terminiSala = terminiSala;
+    //}
 
 }
