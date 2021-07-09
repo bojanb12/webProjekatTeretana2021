@@ -113,6 +113,8 @@ public class FitnesCentarController {
     }
 
 
+
+
     /*
     @PostMapping(
             value="/login",
