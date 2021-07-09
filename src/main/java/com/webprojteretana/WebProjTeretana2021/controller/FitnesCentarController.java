@@ -89,6 +89,23 @@ public class FitnesCentarController {
     }
 
 
+    // metoda za brisanje sale iz fitnes centra
+    @PostMapping(
+            value="/obrisiSalu",
+            consumes = MediaType.APPLICATION_JSON_VALUE,     // tip podataka koje metoda može da primi
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public void obrisiSalu(@RequestBody FitnesCentarSalaDTO fitnesCentarSalaDTO) throws Exception{
+
+        Long idFitnesCentra = fitnesCentarSalaDTO.getIdFitnesCentar();
+
+        Long idSale = fitnesCentarSalaDTO.getIdSala();
+
+        fitnesCentarService.obrisiSalu(idFitnesCentra, idSale);
+
+
+    }
+
 
     /*
     @PostMapping(

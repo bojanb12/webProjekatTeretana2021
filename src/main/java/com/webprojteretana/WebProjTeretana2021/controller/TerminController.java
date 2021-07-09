@@ -108,6 +108,13 @@ public class TerminController {
     }
 
 
+    @DeleteMapping(
+            value = "/delete/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE)  // tip odgovora
+    public ResponseEntity<TerminDTO> deleteTermin(@PathVariable(name = "id") Long id) {
 
+        this.terminService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 }

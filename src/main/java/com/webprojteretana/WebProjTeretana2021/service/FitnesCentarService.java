@@ -22,6 +22,8 @@ public interface FitnesCentarService {
 
     void delete(Long id);
 
+    void obrisiSalu(Long idFC, Long idSale);
+
 
 
 }

@@ -38,6 +38,7 @@ $(document).ready(function () {
     });
 });
 
+
 $(document).on('click', '.btnObrisiTermin', function () {
 
     let idTermin = this.dataset.id;
@@ -54,6 +55,7 @@ $(document).on('click', '.btnObrisiTermin', function () {
             data:myJSON,
             success: function (data) {
                 console.log("SUCCESS : ", data);
+                alert("Termin obrisan!");
                 window.location.href = "terminiTrener.html";
 
 
@@ -69,8 +71,31 @@ $(document).on('click', '.btnObrisiTermin', function () {
 function formToJSON(idTrening, idTermin) {
              return JSON.stringify(
                       {
-                        "idTrening": idTermin,
+                        "idTrening": idTrening,
                         "idTermin": idTermin
                        }
              );
        };
+
+/*
+$(document).on('click', '.btnObrisiTermin', function () {
+
+    let idTermin = this.dataset.id;
+
+    $.ajax({
+            type: "DELETE",
+            url: "http://localhost:8085/api/termini/delete/" + idTermin,  // this.id je button id, a kao button id je postavljen id zaposlenog
+            dataType: "json",
+            success: function (data) {
+                window.location.href = "terminiTrener.html";                             // prikaži taj element
+            },
+            error: function () {
+                alert("Sala obrisana!");
+                console.log("Sala je obrisana.");
+                window.location.href = "terminiTrener.html";
+            }
+        });
+
+});
+
+*/

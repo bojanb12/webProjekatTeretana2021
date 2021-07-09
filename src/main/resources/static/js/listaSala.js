@@ -38,6 +38,53 @@ $(document).ready(function () {
 
 $(document).on('click', '.btnObrisiSalu', function () {
 
+    let idSale = this.dataset.id;
+
+    var idFitnesCentra = localStorage.getItem('fitnesCentarID');
+
+    var myJSON=formToJSON(idFitnesCentra, idSale);
+
+    $.ajax({
+            type: "POST",
+            url: "http://localhost:8085/api/fitnesCentri/obrisiSalu",
+            dataType: "json",
+            contentType: "application/json",
+            data:myJSON,
+            success: function (data) {
+                console.log("SUCCESS : ", data);
+                alert("Sala obrisana!");
+                window.location.href = "listaSala.html";
+
+
+            },
+                   error: function (data) {
+                       alert("Greska!");
+                       window.location.href = "listaSala.html";
+                       console.log("ERROR : ", data);
+                   }
+               });
+
+});
+
+function formToJSON(idFitnesCentra, idSale) {
+             return JSON.stringify(
+                      {
+                        "idFitnesCentra": idFitnesCentra,
+                        "idSale": idSale
+                       }
+             );
+       };
+
+
+
+
+
+
+
+
+/*
+$(document).on('click', '.btnObrisiSalu', function () {
+
     let idSala = this.dataset.id;
 
     $.ajax({
@@ -56,6 +103,8 @@ $(document).on('click', '.btnObrisiSalu', function () {
 
 });
 
+
+*/
 
 /*
 $(document).ready(function () {
