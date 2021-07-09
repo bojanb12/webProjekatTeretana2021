@@ -42,6 +42,6 @@ $(document).on('click', '.btnTerminiPrikaz', function () {
     let treningNaziv2 = this.dataset.naziv;
     localStorage.setItem('treningId2', treningId2);
     localStorage.setItem('treningNaziv2', treningNaziv2);
-    window.location.href = "listaTerminaTrener.html";
+    window.location.href = "terminiTrener.html";
 
 });
