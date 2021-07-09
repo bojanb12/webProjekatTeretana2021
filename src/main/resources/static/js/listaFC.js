@@ -23,6 +23,13 @@ $(document).ready(function () {
                 //dugme za dodavanje nove sale
                 let btn = "<button class='btnSale' data-id=" + fitnesCentar.id + ">Sale</button>";
                 row += "<td>" + btn + "</td>";
+
+                let btn2 = "<button class='btnEditFC' data-id=" + fitnesCentar.id + ">Izmeni</button>";
+                row += "<td>" + btn2 + "</td>";
+
+                let btn3 = "<button class='btnObrisiFC' data-id=" + fitnesCentar.id + ">Obrisi</button>";
+                row += "<td>" + btn3 + "</td>";
+
                 row += "</tr>";
 
                 $('#fitnesCentri').append(row);
@@ -42,6 +49,27 @@ $(document).on('click', '.btnSale', function () {
     localStorage.setItem('fitnesCentarNaziv', fitnesCentarNaziv);
     localStorage.setItem('fitnesCentarID', fitnesCentarId);
     window.location.href = "listaSala.html";
+
+});
+
+
+$(document).on('click', '.btnObrisiFC', function () {
+
+    let idFC = this.dataset.id;
+
+    $.ajax({
+            type: "DELETE",
+            url: "http://localhost:8085/api/fitnesCentri/delete/" + idFC,  // this.id je button id, a kao button id je postavljen id zaposlenog
+            dataType: "json",
+            success: function (data) {
+                window.location.href = "fitnesCentarDeleted.html";                             // prikaži taj element
+            },
+            error: function () {
+                alert("Fitnes centar obrisan!");
+                console.log("Fitnes centar je obrisan");
+                window.location.href = "listaFC.html";
+            }
+        });
 
 });
 

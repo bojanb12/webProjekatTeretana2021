@@ -72,4 +72,14 @@ public class SalaController {
 
 
     }
+
+    // delete metoda
+    @DeleteMapping(
+            value = "/delete/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE)  // tip odgovora
+    public ResponseEntity<SalaDTO> deleteSala(@PathVariable(name = "id") Long id) {
+
+        this.salaService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

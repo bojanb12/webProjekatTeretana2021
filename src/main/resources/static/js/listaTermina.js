@@ -3,7 +3,7 @@ $(document).ready(function () {
     var treningId = localStorage.getItem('treningId');
     var treningNaziv = localStorage.getItem('treningNaziv');
 
-    //$('#imeTreninga').append(treningNaziv);
+    $('#imeTreninga').append(treningNaziv);
 
     $.ajax({
         type: "GET",

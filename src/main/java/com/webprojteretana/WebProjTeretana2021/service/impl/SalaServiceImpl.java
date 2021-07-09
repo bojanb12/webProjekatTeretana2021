@@ -1,5 +1,6 @@
 package com.webprojteretana.WebProjTeretana2021.service.impl;
 
+import com.webprojteretana.WebProjTeretana2021.entity.FitnesCentar;
 import com.webprojteretana.WebProjTeretana2021.entity.Sala;
 import com.webprojteretana.WebProjTeretana2021.entity.Trening;
 import com.webprojteretana.WebProjTeretana2021.repository.SalaRepository;
@@ -47,5 +48,11 @@ public class SalaServiceImpl implements SalaService {
     @Override
     public Sala update(Sala sala) throws Exception {
         return null;
+    }
+
+    @Override
+    public void delete(Long id) {
+        Sala sala = salaRepository.getOne(id);
+        salaRepository.delete(sala);
     }
 }

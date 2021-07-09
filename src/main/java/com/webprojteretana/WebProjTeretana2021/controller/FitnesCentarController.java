@@ -78,6 +78,16 @@ public class FitnesCentarController {
         return new ResponseEntity<>(fitnesCentarDTOS, HttpStatus.OK);
     }
 
+    // delete metoda
+    @DeleteMapping(
+            value = "/delete/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE)  // tip odgovora
+    public ResponseEntity<FitnesCentarDTO> deleteFitnesCentar(@PathVariable(name = "id") Long id) {
+
+        this.fitnesCentarService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
 
     /*

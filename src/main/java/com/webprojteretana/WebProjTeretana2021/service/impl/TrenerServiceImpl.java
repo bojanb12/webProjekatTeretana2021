@@ -1,6 +1,7 @@
 package com.webprojteretana.WebProjTeretana2021.service.impl;
 
 import com.webprojteretana.WebProjTeretana2021.entity.Clan;
+import com.webprojteretana.WebProjTeretana2021.entity.Sala;
 import com.webprojteretana.WebProjTeretana2021.entity.Trener;
 import com.webprojteretana.WebProjTeretana2021.repository.ClanRepository;
 import com.webprojteretana.WebProjTeretana2021.repository.TrenerRepository;
@@ -70,5 +71,11 @@ public class TrenerServiceImpl implements TrenerService {
             trener.setAktivan(true);
         }
         trenerRepository.save(trener);
+    }
+
+    @Override
+    public void delete(Long id) {
+        Trener trener = trenerRepository.getOne(id);
+        trenerRepository.delete(trener);
     }
 }

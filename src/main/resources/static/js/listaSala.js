@@ -36,7 +36,25 @@ $(document).ready(function () {
     });
 });
 
+$(document).on('click', '.btnObrisiSalu', function () {
 
+    let idSala = this.dataset.id;
+
+    $.ajax({
+            type: "DELETE",
+            url: "http://localhost:8085/api/sale/delete/" + idSala,  // this.id je button id, a kao button id je postavljen id zaposlenog
+            dataType: "json",
+            success: function (data) {
+                window.location.href = "listaSala.html";                             // prikaži taj element
+            },
+            error: function () {
+                alert("Sala obrisana!");
+                console.log("Sala je obrisana.");
+                window.location.href = "listaSala.html";
+            }
+        });
+
+});
 
 
 /*

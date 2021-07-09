@@ -22,7 +22,7 @@ $(document).ready(function () {
                      row += "<td>" + data[i]['slobodnihMesta'] + "</td>";
 
                                                                        //dugme za aktivaciju naloga trenera (administrator mora da potvrdi registraciju)
-                     var btn = "<button class='btnObrisiTermin' data-id=" + data[i]['id'] + ">Obrisi</button>";
+                     var btn = "<button class='btnObrisiTermin' data-id=" + data[i]['id'] + ">Obrisi termin</button>";
                      row += "<td>" + btn + "</td>";
                      row += "</tr>";
 
@@ -37,3 +37,40 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).on('click', '.btnObrisiTermin', function () {
+
+    let idTermin = this.dataset.id;
+
+    var idTrening = localStorage.getItem('treningId2');
+
+    var myJSON=formToJSON(idTrening, idTermin);
+
+    $.ajax({
+            type: "POST",
+            url: "http://localhost:8085/api/termini/obrisiTermin",
+            dataType: "json",
+            contentType: "application/json",
+            data:myJSON,
+            success: function (data) {
+                console.log("SUCCESS : ", data);
+                window.location.href = "terminiTrener.html";
+
+
+            },
+                   error: function (data) {
+                       window.location.href = "terminiTrener.html";
+                       console.log("ERROR : ", data);
+                   }
+               });
+
+});
+
+function formToJSON(idTrening, idTermin) {
+             return JSON.stringify(
+                      {
+                        "idTrening": idTermin,
+                        "idTermin": idTermin
+                       }
+             );
+       };

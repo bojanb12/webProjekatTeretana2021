@@ -58,4 +58,10 @@ public class FitnesCentarServiceImpl implements FitnesCentarService {
         fitnesCentar.setSale(sale);
         FitnesCentar fitnesCentar1=this.fitnesCentarRepository.save(fitnesCentar);
     }
+
+    @Override
+    public void delete(Long id) {
+        FitnesCentar fitnesCentar = fitnesCentarRepository.getOne(id);
+        fitnesCentarRepository.delete(fitnesCentar);
+    }
 }

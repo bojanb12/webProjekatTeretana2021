@@ -106,4 +106,22 @@ public class TerminController {
 
         return new ResponseEntity<>(updatedTerminDTO, HttpStatus.OK);
     }
+
+
+    // metoda za brisanje termina za odredjeni trening, brise se iz treninga preko servis metode obrisiTermin
+    @PostMapping(
+            value="/obrisiTermin",
+            consumes = MediaType.APPLICATION_JSON_VALUE,     // tip podataka koje metoda može da primi
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public void obrisiTermin(@RequestBody TreningTerminDTO treningTerminDTO) throws Exception{
+
+        Long idTrening=treningTerminDTO.getIdTrening();
+
+        Long idTermin=treningTerminDTO.getIdTermin();
+
+        treningService.obrisiTermin(idTrening,idTermin);
+
+
+    }
 }
