@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <title class ="tekst1">Termini</title>
+  <meta charset="utf-8" />
+
+  <link rel="stylesheet" type="text/css" href="css/pozadina.css" />
+  <link rel="stylesheet" type="text/css" href="css/button1.css" />
+  <link rel="stylesheet" type="text/css" href="css/tekst.css" />
+  <link rel="stylesheet" type="text/css" href="css/sredina.css" />
+
+  <link rel="stylesheet" type="text/css" href="css/registracija.css" />
+
+
+  <link rel="stylesheet" href="css/tabele.css" />
+  <script src="js/jquery.min.js"></script>
+
+
+  <script src="js/listaTerminaPocetna.js"></script>
+  <script src="js/sortiranjeTabele.js"></script>
+
+</head>
+
+<body>
+
+
+<div id="sviTermini">
+  <h1 id = "imeTreninga" class = "tekst">Termini za odabrani trening:   </h1>
+  <br><br>
+  <div class="container">
+
+    <table id="termini">
+      <tr>
+        <th onclick="sortTableTermini(0)">Vreme</th>
+        <th onclick="sortTableTermini(1)">Dan</th>
+        <th onclick="sortTableTermini(2)">Cena</th>
+        <th onclick="sortTableTermini(3)">Slobodnih mesta</th>
+        <th></th>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <a type="button" href="listaTreningaPocetna.html" class="button1">Nazad</a>
+
+  </div>
+</div>
+
+<div id="jedanTermin" hidden>
+  <h2 style="text-align:center">Fitnes Centar</h2>
+  <div class="card">
+    <h1 id="ime"></h1>
+    <h1 id="prezime"></h1>
+    <br>
+  </div>
+
+</div>
+
+
+
+</body>
+
+</html>
